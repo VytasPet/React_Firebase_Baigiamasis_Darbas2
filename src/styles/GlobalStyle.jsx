@@ -6,13 +6,15 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Space Mono', monospace, 'Work Sans', sans-serif;
     font-family: 'Work Sans', sans-serif;
     background-color: #2B2B2B;
-    padding-left: 10px;
-  padding-right: 10px;
+  padding: 20px 50px;
   /* apridboti tik maximalu ploti */
   max-width: 1140px;
   /* skaiciuoti parastes automatiskai vienodai is kaires ir is desines */
   margin: 0 auto;
   box-sizing: border-box;
+  }
+  .container{
+    
   }
   a {
   text-decoration: none;

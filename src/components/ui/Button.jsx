@@ -7,7 +7,9 @@ export const ButtonFullLink = styled(Link)`
   padding: 20px 30px;
   font-size: 16px;
   color: white;
+  display: inline-block;
 `;
+
 export const ButtonEmptyLink = styled(ButtonFullLink)`
   border: 1px solid #a259ff;
   background-color: #a159ff0;
@@ -16,4 +18,5 @@ export const ButtonSubmit = styled.button`
   background-color: #a259ff;
   border-radius: 20px;
   padding: 20px 50px;
+  display: inline-block;
 `;

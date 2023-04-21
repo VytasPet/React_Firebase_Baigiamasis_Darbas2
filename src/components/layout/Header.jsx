@@ -5,7 +5,6 @@ import { ButtonFullLink } from "../ui/Button";
 import Flexas from "../ui/Flex";
 
 export const Headeris = styled.header`
-  margin: 20px 50px;
   align-items: center;
   /* display: flex;
   justify-content: space-between; */
@@ -16,9 +15,7 @@ const NavLinkai = styled(NavLink)`
   color: white;
   font-weight: 500;
   padding: 20px 10px;
-  :last-child {
-    border-right: none;
-  }
+
   :hover {
     color: white;
     background-color: #6e706f71;
@@ -46,7 +43,7 @@ function Header() {
   return (
     <Headeris>
       <Flexas justify="space-between">
-        <Logo>Shops explorer</Logo>
+        <Logo to={"/"}>Shops explorer</Logo>
         <NavDiv>
           <NavLinkai to={"/"}>Home</NavLinkai>
           <NavLinkai to={"/shops"}>Shops</NavLinkai>
