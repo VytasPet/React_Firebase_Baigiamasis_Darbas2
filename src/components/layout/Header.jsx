@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { ButtonFullLink } from "../ui/Button";
+import { ButtonFullLink, LoginButton } from "../ui/Button";
 import Flexas from "../ui/Flex";
 
 export const Headeris = styled.header`
@@ -15,14 +15,13 @@ const NavLinkai = styled(NavLink)`
   color: white;
   font-weight: 500;
   padding: 20px 10px;
-
   :hover {
     color: white;
-    background-color: #6e706f71;
+    background-color: #3b3b3b;
   }
   :active {
     color: white;
-    background-color: #6e706f71;
+    background-color: #3b3b3b;
   }
 `;
 const Logo = styled(Link)`
@@ -41,14 +40,14 @@ const NavDiv = styled.nav`
 
 function Header() {
   return (
-    <Headeris>
+    <Headeris className="container">
       <Flexas justify="space-between">
         <Logo to={"/"}>Shops explorer</Logo>
         <NavDiv>
           <NavLinkai to={"/"}>Home</NavLinkai>
           <NavLinkai to={"/shops"}>Shops</NavLinkai>
           <NavLinkai to={"/addshop"}>Add Shop</NavLinkai>
-          <ButtonFullLink to={"/login"}>Login</ButtonFullLink>
+          <LoginButton to={"/login"}>Login</LoginButton>
         </NavDiv>
       </Flexas>
     </Headeris>

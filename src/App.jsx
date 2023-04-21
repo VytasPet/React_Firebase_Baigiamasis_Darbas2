@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import AddShopPage from "./pages/AddShopPage";
 import HomePage from "./pages/HomePage";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/addshop" element={<AddShopPage />} />
         <Route path="/shops/:shopUid" element={<SingleShopPage />} />
       </Routes>
+      <Footer />
     </>
   );
 }

@@ -8,6 +8,15 @@ export const ButtonFullLink = styled(Link)`
   font-size: 16px;
   color: white;
   display: inline-block;
+  text-align: center;
+`;
+export const LoginButton = styled(ButtonFullLink)`
+  margin-left: 30px;
+`;
+export const RegisterButton = styled(ButtonFullLink)`
+  width: 70%;
+  margin-top: 30px;
+  padding: 12px 30px;
 `;
 
 export const ButtonEmptyLink = styled(ButtonFullLink)`
