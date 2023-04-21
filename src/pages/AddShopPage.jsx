@@ -7,6 +7,8 @@ const MainDiv = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
   max-wight: 100%;
+  display: flex;
+  justify-content: space-between;
 `;
 const FormName = styled.h2`
   font-size: 51px;
@@ -66,7 +68,7 @@ function AddNewShop() {
   return (
     <MainDiv className="container">
       {/* <h1>Welcome to Login Page</h1> */}
-
+      <LoginPic src="src/assets/img/addShop.jpg" alt="" />
       <HalfPageForm>
         <LoginTitle>Add New Shop:</LoginTitle>
         <InputSmall placeholder="Title"></InputSmall>
