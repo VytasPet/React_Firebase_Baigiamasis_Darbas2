@@ -9,7 +9,7 @@ const MainDiv = styled.div`
   max-wight: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 `;
 const FormName = styled.h2`
   font-size: 51px;
@@ -41,20 +41,28 @@ const LoginTitle = styled.h2`
   color: white;
   font-weight: 400;
 `;
+const AboutLog = styled.p`
+  color: #cccccc;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  text-align: center;
+`;
 
-function LoginPage() {
+function RegisterForm() {
   return (
     <MainDiv className="container">
       {/* <h1>Welcome to Login Page</h1> */}
-      <LoginPic src="src/assets/img/registration.jpeg" alt="" />
+      <LoginPic src="src/assets/img/signUp.jpeg" alt="" />
       <HalfPageForm>
-        <LoginTitle>Login details:</LoginTitle>
+        <LoginTitle>Create account</LoginTitle>
+        <AboutLog>Welcome! enter your details and start creating, exploring shops!</AboutLog>
         <Input placeholder="Your email"></Input>
         <Input placeholder="Password"></Input>
-        <RegisterButton type="submit">Login</RegisterButton>
+        <RegisterButton type="submit">Create account</RegisterButton>
       </HalfPageForm>
     </MainDiv>
   );
 }
 
-export default LoginPage;
+export default RegisterForm;

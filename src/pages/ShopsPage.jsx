@@ -4,7 +4,7 @@ import { Startas } from "../components/ui/StartDiv";
 
 function ShopsPage() {
   return (
-    <div>
+    <div className="container">
       <h1>Welcome to Shops Page</h1>
     </div>
   );

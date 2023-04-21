@@ -35,6 +35,7 @@ const ShopHeroText = styled.h1`
 const HeroArea = styled.div`
   display: flex;
   margin-top: 70px;
+  margin-bottom: 20px;
   align-items: center;
   justify-content: space-between;
 `;
@@ -60,7 +61,7 @@ function HomePage() {
     <HeroArea className="container">
       <HalfHero>
         <LeftMainText>Explore Shops World</LeftMainText>
-        <ButtonFullLink>Sign Up</ButtonFullLink>
+        <ButtonFullLink to={"/register"}>Sign Up</ButtonFullLink>
       </HalfHero>
       <HalfHero>
         <HeroPic src="src/assets/img/shophero.jpg" alt="" />

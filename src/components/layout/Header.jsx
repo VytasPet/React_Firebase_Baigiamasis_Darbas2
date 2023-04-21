@@ -6,8 +6,8 @@ import Flexas from "../ui/Flex";
 
 export const Headeris = styled.header`
   align-items: center;
-  /* display: flex;
-  justify-content: space-between; */
+  display: flex;
+  justify-content: space-between;
 `;
 
 const NavLinkai = styled(NavLink)`
@@ -41,15 +41,13 @@ const NavDiv = styled.nav`
 function Header() {
   return (
     <Headeris className="container">
-      <Flexas justify="space-between">
-        <Logo to={"/"}>Shops explorer</Logo>
-        <NavDiv>
-          <NavLinkai to={"/"}>Home</NavLinkai>
-          <NavLinkai to={"/shops"}>Shops</NavLinkai>
-          <NavLinkai to={"/addshop"}>Add Shop</NavLinkai>
-          <LoginButton to={"/login"}>Login</LoginButton>
-        </NavDiv>
-      </Flexas>
+      <Logo to={"/"}>Shops explorer</Logo>
+      <NavDiv>
+        <NavLinkai to={"/"}>Home</NavLinkai>
+        <NavLinkai to={"/shops"}>Shops</NavLinkai>
+        <NavLinkai to={"/addshop"}>Add Shop</NavLinkai>
+        <LoginButton to={"/login"}>Login</LoginButton>
+      </NavDiv>
     </Headeris>
   );
 }

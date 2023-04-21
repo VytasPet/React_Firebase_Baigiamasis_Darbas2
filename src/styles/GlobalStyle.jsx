@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Space Mono', monospace, 'Work Sans', sans-serif;
     font-family: 'Work Sans', sans-serif;
     background-color: #2B2B2B;
-    height: 50vh;
+    margin: 0;
   }
 
   .container{

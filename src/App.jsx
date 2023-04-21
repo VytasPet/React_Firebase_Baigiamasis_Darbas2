@@ -7,23 +7,29 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ShopsPage from "./pages/ShopsPage";
 import SingleShopPage from "./pages/SingleShopPage";
+import { ContentWrap } from "./styles/ContentWrap";
 import { GlobalStyle } from "./styles/GlobalStyle";
+import { PageContainer } from "./styles/PageContainer";
 // import "./styles/reset.css";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/shops" element={<ShopsPage />} />
-        <Route path="/addshop" element={<AddShopPage />} />
-        <Route path="/shops/:shopUid" element={<SingleShopPage />} />
-      </Routes>
-      <Footer />
+      <PageContainer>
+        <ContentWrap>
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/shops" element={<ShopsPage />} />
+            <Route path="/addshop" element={<AddShopPage />} />
+            <Route path="/shops/:shopUid" element={<SingleShopPage />} />
+          </Routes>
+        </ContentWrap>
+        <Footer />
+      </PageContainer>
     </>
   );
 }

@@ -1,10 +1,11 @@
 import React from "react";
 import { Startas } from "../components/ui/StartDiv";
+import RegisterForm from "../forms/RegisterForm";
 
 function RegisterPage() {
   return (
     <div>
-      <h1>Welcome to Register Page</h1>
+      <RegisterForm />
     </div>
   );
 }

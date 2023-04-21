@@ -21,7 +21,7 @@ export const RegisterButton = styled(ButtonFullLink)`
 
 export const ButtonEmptyLink = styled(ButtonFullLink)`
   border: 1px solid #a259ff;
-  background-color: #a159ff0;
+  width: 100%;
 `;
 export const ButtonSubmit = styled.button`
   background-color: #a259ff;
