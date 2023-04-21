@@ -5,9 +5,8 @@ import { ButtonFullLink } from "../ui/Button";
 import Flexas from "../ui/Flex";
 
 export const Headeris = styled.header`
-  margin: 2rem 5rem;
+  margin: 20px 50px;
   align-items: center;
-  max-width: 100rem;
   /* display: flex;
   justify-content: space-between; */
 `;
@@ -16,7 +15,7 @@ const NavLinkai = styled(NavLink)`
   text-decoration: none;
   color: white;
   font-weight: 500;
-  padding: 2rem 1rem;
+  padding: 20px 10px;
   :last-child {
     border-right: none;
   }
@@ -32,7 +31,7 @@ const NavLinkai = styled(NavLink)`
 const Logo = styled(Link)`
   text-decoration: none;
   color: white;
-  font-size: 2.2rem;
+  font-size: 22px;
   font-family: Space Mono;
 `;
 
@@ -40,7 +39,7 @@ const NavDiv = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.6rem;
+  font-size: 16px;
 `;
 
 function Header() {

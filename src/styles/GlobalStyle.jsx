@@ -9,8 +9,31 @@ export const GlobalStyle = createGlobalStyle`
     padding-left: 10px;
   padding-right: 10px;
   /* apridboti tik maximalu ploti */
-  max-width: 114rem;
+  max-width: 1140px;
   /* skaiciuoti parastes automatiskai vienodai is kaires ir is desines */
   margin: 0 auto;
+  box-sizing: border-box;
   }
+  a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
 `;

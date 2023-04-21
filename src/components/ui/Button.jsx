@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-Link;
 
 export const ButtonFullLink = styled(Link)`
   background-color: #a259ff;
-  border-radius: 2rem;
-  padding: 2rem 3rem;
-  font-size: 1.6rem;
+  border-radius: 30px;
+  padding: 20px 30px;
+  font-size: 16px;
   color: white;
 `;
 export const ButtonEmptyLink = styled(ButtonFullLink)`
@@ -15,6 +14,6 @@ export const ButtonEmptyLink = styled(ButtonFullLink)`
 `;
 export const ButtonSubmit = styled.button`
   background-color: #a259ff;
-  border-radius: 2rem;
-  padding: 2rem 5rem;
+  border-radius: 20px;
+  padding: 20px 50px;
 `;

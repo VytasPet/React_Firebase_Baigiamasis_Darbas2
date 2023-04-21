@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/layout/Header";
-import Hero from "./components/layout/Hero";
 import AddShopPage from "./pages/AddShopPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
@@ -8,7 +7,7 @@ import RegisterPage from "./pages/RegisterPage";
 import ShopsPage from "./pages/ShopsPage";
 import SingleShopPage from "./pages/SingleShopPage";
 import { GlobalStyle } from "./styles/GlobalStyle";
-import "./styles/reset.css";
+// import "./styles/reset.css";
 
 function App() {
   return (
