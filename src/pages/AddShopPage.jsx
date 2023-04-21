@@ -1,10 +1,11 @@
 import React from "react";
+import { Startas } from "../components/ui/StartDiv";
 
 function AddShopPage() {
   return (
-    <div>
+    <Startas>
       <h1>Welcome to AddShop Page</h1>
-    </div>
+    </Startas>
   );
 }
 

@@ -1,25 +1,20 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { ButtonFullLink } from "../ui/Button";
 import Flexas from "../ui/Flex";
 
 export const Headeris = styled.header`
-  margin-top: 2rem;
-  background-color: rgb(255 255 255 / 90%);
-  padding: 0rem 1.5rem;
-  position: absolute;
-  z-index: 2;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  box-shadow: #000000 0px 0px 5px 0px;
-  border-radius: 2px;
+  margin: 2rem 5rem;
+  align-items: center;
+  max-width: 100rem;
+  /* display: flex;
+  justify-content: space-between; */
 `;
 
 const NavLinkai = styled(NavLink)`
   text-decoration: none;
-  color: #cf9e78;
+  color: white;
   font-weight: 500;
   padding: 2rem 1rem;
   :last-child {
@@ -36,29 +31,28 @@ const NavLinkai = styled(NavLink)`
 `;
 const Logo = styled(Link)`
   text-decoration: none;
-  color: #6e706f;
-  font-weight: 800;
-  font-size: 1.9rem;
-  font-family: Geneva;
+  color: white;
+  font-size: 2.2rem;
+  font-family: Space Mono;
 `;
 
 const NavDiv = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.6rem;
 `;
 
 function Header() {
   return (
-    <Headeris className="container">
+    <Headeris>
       <Flexas justify="space-between">
         <Logo>Shops explorer</Logo>
         <NavDiv>
           <NavLinkai to={"/"}>Home</NavLinkai>
           <NavLinkai to={"/shops"}>Shops</NavLinkai>
           <NavLinkai to={"/addshop"}>Add Shop</NavLinkai>
-          <NavLinkai to={"/login"}>Login</NavLinkai>
-          <NavLinkai to={"/register"}>Register</NavLinkai>
+          <ButtonFullLink to={"/login"}>Login</ButtonFullLink>
         </NavDiv>
       </Flexas>
     </Headeris>

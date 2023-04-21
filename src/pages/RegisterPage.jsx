@@ -1,4 +1,5 @@
 import React from "react";
+import { Startas } from "../components/ui/StartDiv";
 
 function RegisterPage() {
   return (
