@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Work Sans', sans-serif;
     background-color: #2B2B2B;
     margin: 0;
+    box-sizing: border-box;
   }
 
   .container{

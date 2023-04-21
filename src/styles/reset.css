@@ -15,7 +15,11 @@ a {
 }
 
 button {
+  border: 1px solid white;
   cursor: pointer;
+  background-color: #fff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 body {

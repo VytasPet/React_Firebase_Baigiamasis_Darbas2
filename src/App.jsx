@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
+import SingleShopContent from "./components/shopcomponents/SingleShopContent";
 import AddShopPage from "./pages/AddShopPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
@@ -24,6 +25,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/shops" element={<ShopsPage />} />
+            <Route path="/single" element={<SingleShopContent />} />
             <Route path="/addshop" element={<AddShopPage />} />
             <Route path="/shops/:shopUid" element={<SingleShopPage />} />
           </Routes>
