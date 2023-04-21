@@ -17,9 +17,10 @@ const SingleShopMainDiv = styled.div`
   margin-top: 40px;
   margin-bottom: 40px;
 `;
-const Town = styled.p`
+const Content = styled.p`
   color: #cccccc;
-  font-size: 16px;
+  font-size: 22px;
+  line-height: 35.2px;
   font-weight: 400;
   margin-bottom: 20px;
 `;
@@ -28,8 +29,8 @@ const AboutWhat = styled.p`
   font-family: Space Mono;
   font-size: 22px;
   font-weight: 700;
-  margin-bottom: 30px;
-  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 30px;
 `;
 
 function SingleShopContent() {
@@ -40,7 +41,12 @@ function SingleShopContent() {
       <SingleShopMainDiv className="container">
         <PageTitle>Browse World Shops</PageTitle>
         <AboutWhat>Town:</AboutWhat>
-        <Town>Kaunas</Town>
+        <Content>Kaunas</Content>
+        <AboutWhat>Description:</AboutWhat>
+        <Content>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis nihil, placeat officia veritatis nulla expedita, impedit ad quam saepe ipsum fuga dicta sed voluptate tempora debitis quo
+          ratione repellendus fugiat incidunt ea beatae aliquid deserunt ipsam? Harum nemo quas quam! Cum eaque perferendis nisi eveniet. Totam esse ex excepturi molestias.
+        </Content>
       </SingleShopMainDiv>
     </>
   );
