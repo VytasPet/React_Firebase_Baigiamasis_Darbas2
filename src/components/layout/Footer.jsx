@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -60,8 +62,26 @@ const InputFoot = styled.input`
   text-align: center;
   margin-bottom: 15px;
 `;
+const SucEmail = styled(AboutLog)`
+  color: white;
+`;
 
 function Footer() {
+  const [emailSent, setemailSent] = useState(false);
+
+  function submitIn(e) {
+    event.preventDefault();
+    const emailVal = e.target.subEmail.value;
+    setemailSent(true);
+
+    console.log("inputval ===", e.target.subEmail.value);
+  }
+  useEffect(() => {
+    setTimeout(() => {
+      setemailSent(false);
+    }, 3000);
+  }, [submitIn]);
+
   return (
     <Footeris>
       <FooterContent className="container">
@@ -77,8 +97,11 @@ function Footer() {
         </FooterDiv>
         <FooterDiv>
           <Logo>Join our weekly digest</Logo>
-          <InputFoot placeholder="Enter your email here:" />
-          <SubButton>Submit</SubButton>
+          <form onSubmit={submitIn}>
+            <InputFoot type="email" id="subEmail" placeholder="Enter your email here:" />
+            {emailSent && <SucEmail>You just successfully subsribed!</SucEmail>}
+            <SubButton type="submit">Submit</SubButton>
+          </form>
         </FooterDiv>
       </FooterContent>
     </Footeris>
