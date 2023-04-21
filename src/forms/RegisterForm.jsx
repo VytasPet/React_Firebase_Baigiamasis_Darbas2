@@ -5,7 +5,8 @@ import { Input } from "../components/ui/Inputs";
 import { Startas } from "../components/ui/StartDiv";
 
 const MainDiv = styled.div`
-  margin-top: 100px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   max-wight: 100%;
   display: flex;
   align-items: center;

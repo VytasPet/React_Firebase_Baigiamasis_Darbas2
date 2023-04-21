@@ -7,5 +7,5 @@ export const Input = styled.input`
   border-radius: 20px;
   padding: 10px 16px;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 `;

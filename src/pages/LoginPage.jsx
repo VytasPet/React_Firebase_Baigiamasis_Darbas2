@@ -1,11 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { RegisterButton } from "../components/ui/Button";
 import { Input } from "../components/ui/Inputs";
 import { Startas } from "../components/ui/StartDiv";
 
 const MainDiv = styled.div`
-  margin-top: 100px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   max-wight: 100%;
   display: flex;
   align-items: center;
@@ -37,9 +39,17 @@ const LoginPic = styled.img`
 `;
 const LoginTitle = styled.h2`
   font-size: 41px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   color: white;
   font-weight: 400;
+`;
+const Links = styled(Link)`
+  color: #cccccc;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 50px;
+  display: block;
+  text-decoration: underline;
 `;
 
 function LoginPage() {
@@ -49,6 +59,7 @@ function LoginPage() {
       <LoginPic src="src/assets/img/registration.jpeg" alt="" />
       <HalfPageForm>
         <LoginTitle>Login details:</LoginTitle>
+        <Links to={"/register"}>Would you like to register?</Links>
         <Input placeholder="Your email"></Input>
         <Input placeholder="Password"></Input>
         <RegisterButton type="submit">Login</RegisterButton>
