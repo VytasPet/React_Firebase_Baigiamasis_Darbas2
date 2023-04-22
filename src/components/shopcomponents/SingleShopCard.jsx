@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const ShopCard = styled.div`
@@ -55,12 +56,15 @@ const CardTags = styled.span`
 `;
 
 function SingleShopCard({ item }) {
+  const navigate = useNavigate();
   console.log("item ===", item);
   const tagas = item?.tags.split(" ");
 
   return (
     <ShopCard>
-      <CardImg src="src/assets/img/addShop.jpg" alt="" />
+      <Link to="/addshop">
+        <CardImg src="src/assets/img/addShop.jpg" alt="" />
+      </Link>
       <CardInfo>
         <CardTitle>{item?.title}</CardTitle>
         <CardTown>{item?.town}</CardTown>

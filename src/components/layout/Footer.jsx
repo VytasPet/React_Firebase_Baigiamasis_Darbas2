@@ -101,8 +101,8 @@ function Footer() {
           <Logo>Join our weekly digest</Logo>
           <form onSubmit={submitIn}>
             <InputFoot type="email" id="subEmail" placeholder="Enter your email here:" />
-            {emailSent && <SucEmail>You just successfully subscribed!</SucEmail>}
             <SubButton type="submit">Submit</SubButton>
+            {emailSent && <SucEmail>You just successfully subscribed!</SucEmail>}
           </form>
         </FooterDiv>
       </FooterContent>
