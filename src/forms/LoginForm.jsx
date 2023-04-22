@@ -1,4 +1,6 @@
+import { useFormik } from "formik";
 import React from "react";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { RegisterButton } from "../components/ui/Button";
@@ -36,15 +38,32 @@ const HalfPageForm = styled.form`
   flex-direction: column;
 `;
 
-function LoginForm() {
+function LoginForm({ onLog }) {
+  const formik = useFormik({
+    initialValues: {
+      email: "jonas@mekas.com",
+      password: "123456",
+    },
+    onSubmit: (values) => {
+      console.log("Form values:", values);
+      onLog(values);
+    },
+  });
+
   return (
-    <HalfPageForm>
-      <LoginTitle>Login details:</LoginTitle>
-      <Links to={"/register"}>Would you like to register?</Links>
-      <Input placeholder="Your email"></Input>
-      <Input placeholder="Password"></Input>
-      <RegisterButton type="submit">Login</RegisterButton>
-    </HalfPageForm>
+    <>
+      <HalfPageForm onSubmit={formik.handleSubmit}>
+        <LoginTitle>Login details:</LoginTitle>
+        <Links to={"/register"}>Would you like to register?</Links>
+        <Input type="text" name="email" id="email" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} placeholder="Your email" />
+        <Input type="password" name="password" id="password" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} placeholder="Password" />
+        <RegisterButton type="submit">Login</RegisterButton>
+      </HalfPageForm>
+      <div>
+        <p>{formik.values.email}</p>
+        <p>{formik.values.password}</p>
+      </div>
+    </>
   );
 }
 

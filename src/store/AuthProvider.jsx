@@ -5,8 +5,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 const AuthContext = createContext({
   user: {},
-  login() {},
-  logout() {},
+  //   login() {},
+  //   logout() {},
   isLoggedIn: false,
 });
 

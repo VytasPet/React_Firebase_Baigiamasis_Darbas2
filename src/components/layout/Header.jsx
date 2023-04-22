@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
+import Logout from "../../forms/Logout";
+import { useAuthCtx } from "../../store/AuthProvider";
 import { ButtonFullLink, LoginButton } from "../ui/Button";
 import Flexas from "../ui/Flex";
 
@@ -39,14 +41,20 @@ const NavDiv = styled.nav`
 `;
 
 function Header() {
+  const { isLoggedIn } = useAuthCtx();
   return (
     <Headeris className="container">
       <Logo to={"/"}>Shops explorer</Logo>
       <NavDiv>
         <NavLinkai to={"/"}>Home</NavLinkai>
-        <NavLinkai to={"/shops"}>Shops</NavLinkai>
-        <NavLinkai to={"/addshop"}>Add Shop</NavLinkai>
-        <LoginButton to={"/login"}>Login</LoginButton>
+        {isLoggedIn && (
+          <>
+            <NavLinkai to={"/shops"}>Shops</NavLinkai>
+            <NavLinkai to={"/addshop"}>Add Shop</NavLinkai>
+          </>
+        )}
+        {!isLoggedIn && <LoginButton to={"/login"}>Login</LoginButton>}
+        {isLoggedIn && <Logout />}
       </NavDiv>
     </Headeris>
   );

@@ -1,10 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { RegisterButton } from "../components/ui/Button";
 import { Input } from "../components/ui/Inputs";
 import { Startas } from "../components/ui/StartDiv";
+import { auth } from "../firebase/firebase";
 import LoginForm from "../forms/LoginForm";
+import { useAuthCtx } from "../store/AuthProvider";
 
 const MainDiv = styled.div`
   margin-top: 30px;
@@ -54,11 +57,26 @@ const LoginPic = styled.img`
 // `;
 
 function LoginPage() {
+  const navigate = useNavigate();
+  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+
+  function loginWithFirebaseHook({ email, password }) {
+    // console.log("funkcija suveike");
+    // console.log(email, password);
+    signInWithEmailAndPassword(email, password).then(() => {
+      console.log("user ===", user);
+    });
+  }
+  if (user) {
+    navigate("/shops");
+  }
+
   return (
     <MainDiv className="container">
       {/* <h1>Welcome to Login Page</h1> */}
+      {error && <p>nepavyko prisijungti!</p>}
       <LoginPic src="src/assets/img/registration.jpeg" alt="" />
-      <LoginForm />
+      <LoginForm onLog={loginWithFirebaseHook} />
       {/* <HalfPageForm>
         <LoginTitle>Login details:</LoginTitle>
         <Links to={"/register"}>Would you like to register?</Links>
