@@ -28,10 +28,13 @@ const AboutLog = styled.p`
 const ShopsSection = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
-  display: flex;
-  gap: 20px;
+  /* display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: row; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 20px;
 `;
 
 function ShopsPage() {

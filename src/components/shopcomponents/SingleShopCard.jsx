@@ -3,14 +3,15 @@ import styled from "styled-components";
 
 const ShopCard = styled.div`
   height: 469px;
-  width: 330px;
+  max-height: 469px;
+  max-width: 330px;
   border: 1px solid white;
   border-radius: 20px;
 `;
 const CardImg = styled.img`
   width: 100%;
-  height: 295px;
-  max-height: 295px;
+  height: 68%;
+  max-height: ;
   display: block;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -19,7 +20,11 @@ const CardImg = styled.img`
 
 const CardInfo = styled.div`
   max-width: 100%;
-  max-height: 174px;
+  height: 25%;
+  max-height: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 20px 30px;
   text-align: center;
   background-color: #3b3b3b;
@@ -32,7 +37,6 @@ const CardTown = styled.p`
   font-size: 16px;
   font-family: Space Mono;
   max-width: 100%;
-  padding: 20px 30px;
   margin-top: 5px;
 `;
 const CardTitle = styled.h5`
@@ -40,7 +44,7 @@ const CardTitle = styled.h5`
   font-size: 22px;
   line-height: 30.8px;
 `;
-const CardTags = styled.p`
+const CardTags = styled.span`
   padding: 5px 10px;
   font-weight: 600;
   background-color: #a259ff;
@@ -50,15 +54,21 @@ const CardTags = styled.p`
   border-radius: 20px;
 `;
 
-function SingleShopCard({ title, describe, town, tags }) {
+function SingleShopCard({ item }) {
+  console.log("item ===", item);
+  const tagas = item?.tags.split(" ");
+
   return (
     <ShopCard>
       <CardImg src="src/assets/img/addShop.jpg" alt="" />
       <CardInfo>
-        <CardTitle>{}</CardTitle>
-        <CardTown>Kaunas</CardTown>
-        <CardTags>Mau</CardTags>
-        <CardTags>pyp</CardTags>
+        <CardTitle>{item?.title}</CardTitle>
+        <CardTown>{item?.town}</CardTown>
+        <div>
+          {tagas?.map((obj) => (
+            <CardTags key={obj}>{obj}</CardTags>
+          ))}
+        </div>
       </CardInfo>
     </ShopCard>
   );
