@@ -71,16 +71,18 @@ function Footer() {
 
   function submitIn(e) {
     event.preventDefault();
-    const emailVal = e.target.subEmail.value;
     setemailSent(true);
 
-    console.log("inputval ===", e.target.subEmail.value);
-  }
-  useEffect(() => {
     setTimeout(() => {
       setemailSent(false);
+      e.target.subEmail.value = "";
     }, 3000);
-  }, [submitIn]);
+  }
+  //   useEffect(() => {
+  //     setTimeout(() => {
+  //       setemailSent(false);
+  //     }, 3000);
+  //   }, [submitIn]);
 
   return (
     <Footeris>

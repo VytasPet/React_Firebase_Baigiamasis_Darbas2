@@ -50,12 +50,12 @@ const CardTags = styled.p`
   border-radius: 20px;
 `;
 
-function SingleShopCard() {
+function SingleShopCard({ title, describe, town, tags }) {
   return (
     <ShopCard>
       <CardImg src="src/assets/img/addShop.jpg" alt="" />
       <CardInfo>
-        <CardTitle>Labas</CardTitle>
+        <CardTitle>{}</CardTitle>
         <CardTown>Kaunas</CardTown>
         <CardTags>Mau</CardTags>
         <CardTags>pyp</CardTags>
