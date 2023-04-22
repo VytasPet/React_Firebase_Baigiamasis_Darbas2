@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useAuthState, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -62,16 +62,47 @@ function LoginPage() {
   const navigate = useNavigate();
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
 
+  // const loginWithFirebaseHook = async ({ email, password }) => {
+  //   const loadingToastId = toast.loading("Signing in...");
+
+  //   try {
+  //     await signInWithEmailAndPassword(email, password);
+  //     toast.success("Signed in successfully!");
+  //   } catch (error) {
+  //     toast.error(`Failed to sign in: ${error.message}`);
+  //   }
+  // };
+
   function loginWithFirebaseHook({ email, password }) {
+    const loadingToastId = toast.loading("Signing in...");
     // console.log("funkcija suveike");
     // console.log(email, password);
     signInWithEmailAndPassword(email, password).then(() => {
-      console.log("user ===", user);
-      navigate("/shops");
+      toast.dismiss(loadingToastId);
+      // if (user) {
+      //   toast.dismiss(loadingToastId);
+      //   toast.success("Signed in successfully!");
+      // } else if (error) {
+      //   toast.dismiss(loadingToastId);
+      //   toast.error(`Failed to sign in: ${error.message}`);
+      // } else {
+      //   toast.dismiss(loadingToastId);
+      // }
+      //navigate("/shops");
     });
   }
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (user) {
+      toast.success("Signed in successfully!");
+      navigate("/shops");
+      // Navigate to another page or perform any other action upon successful sign-in.
+    } else if (error) {
+      toast.error(`Failed to sign in: ${error.message}`);
+    }
+  }, [user, error]);
+
+  // useEffect(() => {}, [loading]);
 
   // if (error) {
   //   toast.error("Login failed!");
