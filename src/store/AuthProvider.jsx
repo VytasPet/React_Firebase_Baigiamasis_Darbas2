@@ -26,8 +26,6 @@ function AuthProvider({ children }) {
   const authCtx = {
     user,
     isLoggedIn,
-    feedback,
-    ui,
   };
 
   return <AuthContext.Provider value={authCtx}>{children}</AuthContext.Provider>;

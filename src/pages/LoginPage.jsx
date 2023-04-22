@@ -1,5 +1,7 @@
 import React from "react";
+import { useEffect } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { RegisterButton } from "../components/ui/Button";
@@ -65,25 +67,29 @@ function LoginPage() {
     // console.log(email, password);
     signInWithEmailAndPassword(email, password).then(() => {
       console.log("user ===", user);
+      navigate("/shops");
     });
   }
-  if (user) {
-    navigate("/shops");
-  }
+
+  useEffect(() => {}, []);
+
+  // if (error) {
+  //   toast.error("Login failed!");
+  // }
+  // if (loading) {
+  //   toast.loading("Loading...");
+  // }
+
+  // if (user) {
+  //   toast.success("Login success!");
+  //   navigate("/shops");
+  // }
 
   return (
     <MainDiv className="container">
       {/* <h1>Welcome to Login Page</h1> */}
-      {error && <p>nepavyko prisijungti!</p>}
       <LoginPic src="src/assets/img/registration.jpeg" alt="" />
       <LoginForm onLog={loginWithFirebaseHook} />
-      {/* <HalfPageForm>
-        <LoginTitle>Login details:</LoginTitle>
-        <Links to={"/register"}>Would you like to register?</Links>
-        <Input placeholder="Your email"></Input>
-        <Input placeholder="Password"></Input>
-        <RegisterButton type="submit">Login</RegisterButton>
-      </HalfPageForm> */}
     </MainDiv>
   );
 }

@@ -1,6 +1,7 @@
 import { addDoc, collection } from "firebase/firestore";
 import { useFormik } from "formik";
 import React from "react";
+import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { RegisterButton } from "../components/ui/Button";
@@ -30,6 +31,7 @@ function AddNewShop() {
     const shopRef = collection(db, "shops");
     addDoc(shopRef, newShop).then(() => {
       console.log("prideta!");
+      toast.success("You added new shop!");
       navigate("/shops");
     });
     // console.log('Document written with ID: ', docRef.id);

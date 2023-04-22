@@ -21,6 +21,7 @@ export const LoginButton = styled(ButtonFullLink)`
 export const RegisterButton = styled.button`
   background-color: #a259ff;
   border-radius: 30px;
+  border: none;
   padding: 20px 30px;
   font-size: 16px;
   color: white;

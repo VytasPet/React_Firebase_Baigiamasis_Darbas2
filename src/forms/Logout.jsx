@@ -1,4 +1,5 @@
 import { useSignOut } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
 import styled from "styled-components";
 import { LoginButton } from "../components/ui/Button";
 import { auth } from "../firebase/firebase";
@@ -10,6 +11,7 @@ function Logout() {
 
   function logoutFireBaseHook() {
     signOut();
+    toast.success("You just logged out!");
   }
 
   return !isLoggedIn ? null : (

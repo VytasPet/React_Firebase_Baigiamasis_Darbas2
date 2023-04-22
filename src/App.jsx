@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
@@ -12,6 +13,7 @@ import { useAuthCtx } from "./store/AuthProvider";
 import { ContentWrap } from "./styles/ContentWrap";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import { PageContainer } from "./styles/PageContainer";
+
 // import "./styles/reset.css";
 
 function App() {
@@ -19,9 +21,11 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <Toaster />
       <PageContainer>
         <ContentWrap>
           <Header />
+
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
