@@ -17,7 +17,7 @@ function RegisterPage() {
     const loadingToastId = toast.loading("Registering...");
     createUserWithEmailAndPassword(email, password).then(() => {
       toast.dismiss(loadingToastId);
-      navigate("/");
+      navigate("/shops");
       toast.success("Sign up successfully!");
       // if (user) {
       //   toast.success("Signed in successfully!");

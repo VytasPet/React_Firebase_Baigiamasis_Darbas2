@@ -79,8 +79,13 @@ function LoginPage() {
     // console.log(email, password);
     signInWithEmailAndPassword(email, password).then(() => {
       toast.dismiss(loadingToastId);
+      // if (user) {
+      //   toast.success("Signed in successfully!");
+      //   // Navigate to another page or perform any other action upon successful sign-in.
+      // }
     });
   }
+  console.log("user ===", user);
 
   useEffect(() => {
     if (user) {
