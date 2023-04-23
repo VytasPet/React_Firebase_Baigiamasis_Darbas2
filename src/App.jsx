@@ -1,5 +1,5 @@
 import { Toaster } from "react-hot-toast";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import SingleShopContent from "./components/shopcomponents/SingleShopContent";
@@ -29,7 +29,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
 
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={isLoggedIn ? <Navigate to={"/shops"} /> : <LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             {isLoggedIn && (
               <>
