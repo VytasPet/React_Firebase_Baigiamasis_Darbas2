@@ -46,7 +46,7 @@ function SingleShopContent() {
   const shopObj = value?.data();
 
   console.log("shopObj ===", shopObj);
-  const picShop = shopObj?.imageUrl ? shopObj?.imageUrl : "https://cdn.pixabay.com/photo/2019/04/26/07/14/store-4156934_1280.png";
+  const picShop = shopObj?.imageUrl;
   console.log("picShop ===", picShop);
   console.log("sdfd", shopObj?.imageUrl);
 

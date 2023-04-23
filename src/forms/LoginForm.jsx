@@ -40,13 +40,14 @@ const ErrText = styled.p`
 `;
 
 const HalfPageForm = styled.form`
-  width: 100%;
+  width: 70%;
   display: flex;
   align-items: center;
 
   flex-direction: column;
 `;
 const AllLogins = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
