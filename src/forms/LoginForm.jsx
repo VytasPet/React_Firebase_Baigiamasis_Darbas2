@@ -51,8 +51,8 @@ function LoginForm({ onLog }) {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      email: "jonas@mekas.com",
-      password: "123456",
+      email: "",
+      password: "",
     },
     validationSchema: Yup.object({
       email: Yup.string().email().min(3).required(),
@@ -63,6 +63,7 @@ function LoginForm({ onLog }) {
       onLog(values);
     },
   });
+
   function loginWithGmail() {
     const loginGooglePromise = signInWithPopup(auth, googleProvider)
       .then((result) => {

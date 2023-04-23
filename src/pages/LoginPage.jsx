@@ -89,8 +89,8 @@ function LoginPage() {
 
   useEffect(() => {
     if (user) {
-      toast.success("Signed in successfully!");
       navigate("/shops");
+      toast.success("Signed in successfully!");
       // Navigate to another page or perform any other action upon successful sign-in.
     } else if (error) {
       toast.error(`Failed to sign in: ${error.message}`);
