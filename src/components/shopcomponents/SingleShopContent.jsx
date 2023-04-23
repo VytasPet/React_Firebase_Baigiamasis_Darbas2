@@ -1,5 +1,9 @@
+import { doc } from "firebase/firestore";
 import React from "react";
+import { useDocument } from "react-firebase-hooks/firestore";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { db } from "../../firebase/firebase";
 
 const MainImg = styled.img`
   width: 100%;
@@ -34,19 +38,25 @@ const AboutWhat = styled.p`
 `;
 
 function SingleShopContent() {
+  const { shopUid } = useParams();
+  console.log("shopUid ===", shopUid);
+
+  const docRef = doc(db, "shops", shopUid);
+  const [value, loading, error] = useDocument(docRef);
+  const shopObj = value?.data();
+
+  console.log("shopObj ===", shopObj);
+
   return (
     <>
-      <MainImg src="src/assets/img/shophero.jpg" alt="" />
+      <MainImg src={shopObj?.imageUrl} alt="" />
 
       <SingleShopMainDiv className="container">
-        <PageTitle>Browse World Shops</PageTitle>
+        <PageTitle>{shopObj?.title}</PageTitle>
         <AboutWhat>Town:</AboutWhat>
-        <Content>Kaunas</Content>
+        <Content>{shopObj?.town}</Content>
         <AboutWhat>Description:</AboutWhat>
-        <Content>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis nihil, placeat officia veritatis nulla expedita, impedit ad quam saepe ipsum fuga dicta sed voluptate tempora debitis quo
-          ratione repellendus fugiat incidunt ea beatae aliquid deserunt ipsam? Harum nemo quas quam! Cum eaque perferendis nisi eveniet. Totam esse ex excepturi molestias.
-        </Content>
+        <Content>{shopObj?.description}</Content>
       </SingleShopMainDiv>
     </>
   );

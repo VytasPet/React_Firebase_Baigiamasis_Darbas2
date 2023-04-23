@@ -78,7 +78,7 @@ function AddSingleShop({ addShop }) {
     }),
     onSubmit: (values) => {
       console.log("Form values:", values);
-      const shopWithUid = { uid: user.uid, ...values };
+      const shopWithUid = { userUid: user.uid, ...values };
       console.log("shopWithUid ===", shopWithUid);
       addShop(shopWithUid);
     },

@@ -57,14 +57,12 @@ const CardTags = styled.span`
 
 function SingleShopCard({ item }) {
   const navigate = useNavigate();
-  console.log("item ===", item);
   const tagas = item?.tags.split(",").map((tag) => tag.trim());
-  console.log("tagas ===", tagas);
 
   return (
     <ShopCard>
-      <Link to="/addshop">
-        <CardImg src="src/assets/img/addShop.jpg" alt="" />
+      <Link to={`/shops/${item?.uid}`}>
+        <CardImg src={item?.imageUrl} alt="" />
       </Link>
       <CardInfo>
         <CardTitle>{item?.title}</CardTitle>

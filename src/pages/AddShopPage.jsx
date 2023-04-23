@@ -26,6 +26,7 @@ const LoginPic = styled.img`
 
 function AddNewShop() {
   const navigate = useNavigate();
+
   function addNewShop(newShop) {
     console.log("newShop ===", newShop);
     const shopRef = collection(db, "shops");

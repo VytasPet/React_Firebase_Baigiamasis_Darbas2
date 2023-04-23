@@ -29,14 +29,14 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
 
-            <Route path="/login" element={isLoggedIn ? <Navigate to={"/"} /> : <LoginPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={isLoggedIn ? <Navigate to={"/"} /> : <RegisterPage />} />
             {isLoggedIn && (
               <>
                 <Route path="/shops" element={<ShopsPage />} />
                 <Route path="/single" element={<SingleShopContent />} />
                 <Route path="/addshop" element={<AddShopPage />} />
-                <Route path="/shops/:shopUid" element={<SingleShopPage />} />
+                <Route path="/shops/:shopUid" element={<SingleShopContent />} />
               </>
             )}
           </Routes>
