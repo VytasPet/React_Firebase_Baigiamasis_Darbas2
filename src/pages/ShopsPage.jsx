@@ -41,30 +41,29 @@ const ShopsSection = styled.div`
 function ShopsPage() {
   const shopsCollRef = collection(db, "shops");
   const [value, loading, error] = useCollection(shopsCollRef);
-  const loadingToast = toast.loading("Loading...");
+  const [loadingToast, setloadingToast] = useState(null);
+
+  useEffect(() => {
+    if (loading) {
+      setloadingToast(toast.loading("Loading..."));
+    } else {
+      toast.dismiss(loadingToast);
+    }
+  }, [loading]);
 
   const shopsWithUid = value && value.docs.map((doc) => ({ uid: doc.id, ...doc.data() }));
+
   console.log("shopsWithUid ===", shopsWithUid);
-  toast.dismiss(loadingToast);
-  // useEffect(() => {
-  //   console.log("shopsWithUid ===", shopsWithUid);
-  //   settoShowShops(shopsWithUid);
-  // }, [value]);
-
-  // const displayShops = toShowShops;
-
-  // settoShowShops(shopsWithUid);
 
   return (
     <>
       <TitleDiv className="container">
         <PageTitle>Browse World Shops</PageTitle>
         <AboutLog>You can find shops from all around the world!</AboutLog>
-        {value && shopsWithUid.length < 1 && <AboutLog>No shops at the moment...</AboutLog>}
+        {/* {value && shopsWithUid.length < 1 && <AboutLog>No shops at the moment...</AboutLog>} */}
       </TitleDiv>
       <ShopsSection className="container">{value && shopsWithUid.map((shop) => <SingleShopCard key={shop.uid} item={shop} />)}</ShopsSection>
     </>
   );
 }
-
 export default ShopsPage;
