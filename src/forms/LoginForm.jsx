@@ -1,11 +1,14 @@
 import { useFormik } from "formik";
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import React from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { RegisterButton } from "../components/ui/Button";
+import { RegisterButton, RegisterWithGoogle } from "../components/ui/Button";
 import { Input } from "../components/ui/Inputs";
 import * as Yup from "yup";
+import { auth, googleProvider } from "../firebase/firebase";
+import toast from "react-hot-toast";
 
 const LoginTitle = styled.h2`
   font-size: 41px;
@@ -45,6 +48,7 @@ const HalfPageForm = styled.form`
 `;
 
 function LoginForm({ onLog }) {
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "jonas@mekas.com",
@@ -59,6 +63,38 @@ function LoginForm({ onLog }) {
       onLog(values);
     },
   });
+  function loginWithGmail() {
+    const loginGooglePromise = signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        console.log("result ===", result);
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+        console.log("user ===", user);
+        navigate("/");
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        console.log("error ===", error);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.warn("errorMessage ===", errorMessage);
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+    toast.promise(loginGooglePromise, {
+      loading: "Loading",
+      success: "Login success",
+      error: "Error when loging in",
+    });
+  }
 
   return (
     <>
@@ -70,6 +106,7 @@ function LoginForm({ onLog }) {
         <Input type="password" name="password" id="password" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} placeholder="Password" />
         {formik.errors.password && formik.touched.password && <ErrText>{formik.errors.password}</ErrText>}
         <RegisterButton type="submit">Login</RegisterButton>
+        <RegisterWithGoogle onClick={loginWithGmail}>Login with Google</RegisterWithGoogle>
       </HalfPageForm>
       <div>
         <p>{formik.values.email}</p>

@@ -31,6 +31,11 @@ export const RegisterButton = styled.button`
   margin-top: 30px;
   padding: 12px 30px;
 `;
+export const RegisterWithGoogle = styled(RegisterButton)`
+  border: 1px solid #a259ff;
+  background-color: #a159ff27;
+  margin-top: 70px;
+`;
 
 export const ButtonEmptyLink = styled(ButtonFullLink)`
   border: 1px solid #a259ff;
