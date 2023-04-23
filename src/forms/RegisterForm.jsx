@@ -69,7 +69,7 @@ function RegisterForm({ onReg }) {
     }),
     onSubmit: (values) => {
       console.log("Form values:", values);
-      //   onReg(values);
+      onReg(values);
     },
   });
 

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ButtonFullLink } from "../components/ui/Button";
+import { useAuthCtx } from "../store/AuthProvider";
 
 const HeroBgc = styled.div`
   display: flex;
@@ -57,11 +58,12 @@ const PicAboutArea = styled.div`
 `;
 
 function HomePage() {
+  const { isLoggedIn } = useAuthCtx();
   return (
     <HeroArea className="container">
       <HalfHero>
         <LeftMainText>Explore Shops World</LeftMainText>
-        <ButtonFullLink to={"/register"}>Sign Up</ButtonFullLink>
+        {!isLoggedIn && <ButtonFullLink to={"/register"}>Sign Up</ButtonFullLink>}
       </HalfHero>
       <HalfHero>
         <HeroPic src="src/assets/img/shophero.jpg" alt="" />
