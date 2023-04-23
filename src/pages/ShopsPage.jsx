@@ -26,6 +26,12 @@ const AboutLog = styled.p`
   font-weight: 400;
   margin-bottom: 20px;
 `;
+const NoShops = styled(AboutLog)`
+  margin-top: 30px;
+  font-size: 32px;
+  text-align: center;
+`;
+
 const ShopsSection = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
@@ -59,9 +65,9 @@ function ShopsPage() {
     <>
       <TitleDiv className="container">
         <PageTitle>Browse World Shops</PageTitle>
-        <AboutLog>You can find shops from all around the world!</AboutLog>
-        {/* {value && shopsWithUid.length < 1 && <AboutLog>No shops at the moment...</AboutLog>} */}
+        {value && shopsWithUid.length > 1 && <AboutLog>You can find shops from all around the world!</AboutLog>}
       </TitleDiv>
+      {value && shopsWithUid.length < 1 && <NoShops>No shops at the moment...</NoShops>}
       <ShopsSection className="container">{value && shopsWithUid.map((shop) => <SingleShopCard key={shop.uid} item={shop} />)}</ShopsSection>
     </>
   );
