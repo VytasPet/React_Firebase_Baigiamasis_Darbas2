@@ -46,15 +46,20 @@ function SingleShopContent() {
   const shopObj = value?.data();
 
   console.log("shopObj ===", shopObj);
+  const picShop = shopObj?.imageUrl ? shopObj?.imageUrl : "https://cdn.pixabay.com/photo/2019/04/26/07/14/store-4156934_1280.png";
+  console.log("picShop ===", picShop);
+  console.log("sdfd", shopObj?.imageUrl);
 
   return (
     <>
-      <MainImg src={shopObj?.imageUrl} alt="" />
+      <MainImg src={picShop} alt={shopObj?.title} />
 
       <SingleShopMainDiv className="container">
-        <PageTitle>{shopObj?.title}</PageTitle>
+        <PageTitle>{shopObj?.shopName}</PageTitle>
         <AboutWhat>Town:</AboutWhat>
         <Content>{shopObj?.town}</Content>
+        <AboutWhat>Year:</AboutWhat>
+        <Content>{shopObj?.startYear}</Content>
         <AboutWhat>Description:</AboutWhat>
         <Content>{shopObj?.description}</Content>
       </SingleShopMainDiv>

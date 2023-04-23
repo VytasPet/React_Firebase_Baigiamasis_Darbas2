@@ -63,18 +63,20 @@ function AddSingleShop({ addShop }) {
   console.log("user ===", user.uid);
   const formik = useFormik({
     initialValues: {
-      title: "jonas@mekas.com",
+      shopName: "",
       description: "",
+      startYear: "",
       town: "",
       tags: "",
       imageUrl: "",
     },
     validationSchema: Yup.object({
-      title: Yup.string().min(3).required(),
-      description: Yup.string().min(15).required(),
-      town: Yup.string().min(2).required(),
+      shopName: Yup.string().min(5).required(),
+      description: Yup.string().min(6).required(),
+      town: Yup.string().min(5).required(),
+      startYear: Yup.number().min(1970).max(2022).required(),
       tags: Yup.string().min(2).required(),
-      imageUrl: Yup.string().min(4).required(),
+      imageUrl: Yup.string().min(5),
     }),
     onSubmit: (values) => {
       console.log("Form values:", values);
@@ -87,12 +89,14 @@ function AddSingleShop({ addShop }) {
   return (
     <HalfPageForm onSubmit={formik.handleSubmit}>
       <LoginTitle>Add New Shop:</LoginTitle>
-      <InputSmall type="text" name="title" id="title" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.title} placeholder="Title"></InputSmall>
-      {formik.errors.title && formik.touched.title && <ErrText>{formik.errors.title}</ErrText>}
+      <InputSmall type="text" name="shopName" id="shopName" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.shopName} placeholder="Title"></InputSmall>
+      {formik.errors.shopName && formik.touched.shopName && <ErrText>{formik.errors.shopName}</ErrText>}
       <InputBig type="text" name="description" id="description" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.description} placeholder="Describe your shop"></InputBig>
       {formik.errors.description && formik.touched.description && <ErrText>{formik.errors.description}</ErrText>}
       <InputSmall type="text" name="town" id="town" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.town} placeholder="Town"></InputSmall>
       {formik.errors.town && formik.touched.town && <ErrText>{formik.errors.town}</ErrText>}
+      <InputSmall type="number" name="startYear" id="startYear" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.startYear} placeholder="Start Year"></InputSmall>
+      {formik.errors.startYear && formik.touched.startYear && <ErrText>{formik.errors.startYear}</ErrText>}
       <InputSmall type="text" name="tags" id="tags" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.tags} placeholder="Tags"></InputSmall>
       {formik.errors.tags && formik.touched.tags && <ErrText>{formik.errors.tags}</ErrText>}
       <InputSmall type="text" name="imageUrl" id="imageUrl" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.imageUrl} placeholder="Image url"></InputSmall>

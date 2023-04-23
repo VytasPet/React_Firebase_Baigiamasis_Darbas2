@@ -28,9 +28,8 @@ function App() {
 
           <Routes>
             <Route path="/" element={<HomePage />} />
-
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={isLoggedIn ? <Navigate to={"/"} /> : <RegisterPage />} />
+            <Route path="/register" element={isLoggedIn ? <Navigate to={"/shops"} /> : <RegisterPage />} />
             {isLoggedIn && (
               <>
                 <Route path="/shops" element={<ShopsPage />} />

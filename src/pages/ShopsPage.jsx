@@ -6,6 +6,7 @@ import { db } from "../firebase/firebase";
 import { collection } from "firebase/firestore";
 import { useState } from "react";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 const PageTitle = styled.h1`
   font-size: 67px;
@@ -38,12 +39,13 @@ const ShopsSection = styled.div`
 `;
 
 function ShopsPage() {
-  const [toShowShops, settoShowShops] = useState({});
   const shopsCollRef = collection(db, "shops");
   const [value, loading, error] = useCollection(shopsCollRef);
+  const loadingToast = toast.loading("Loading...");
 
   const shopsWithUid = value && value.docs.map((doc) => ({ uid: doc.id, ...doc.data() }));
   console.log("shopsWithUid ===", shopsWithUid);
+  toast.dismiss(loadingToast);
   // useEffect(() => {
   //   console.log("shopsWithUid ===", shopsWithUid);
   //   settoShowShops(shopsWithUid);
@@ -58,11 +60,9 @@ function ShopsPage() {
       <TitleDiv className="container">
         <PageTitle>Browse World Shops</PageTitle>
         <AboutLog>You can find shops from all around the world!</AboutLog>
+        {value && shopsWithUid.length < 1 && <AboutLog>No shops at the moment...</AboutLog>}
       </TitleDiv>
-      <ShopsSection className="container">
-        {value && shopsWithUid.map((shop) => <SingleShopCard key={shop.uid} item={shop} />)}
-        <SingleShopCard />
-      </ShopsSection>
+      <ShopsSection className="container">{value && shopsWithUid.map((shop) => <SingleShopCard key={shop.uid} item={shop} />)}</ShopsSection>
     </>
   );
 }

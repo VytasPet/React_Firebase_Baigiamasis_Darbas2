@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useAuthCtx } from "../../store/AuthProvider";
 
 const Footeris = styled.footer`
   background-color: #3b3b3b;
@@ -67,6 +68,7 @@ const SucEmail = styled(AboutLog)`
 `;
 
 function Footer() {
+  const { isLoggedIn } = useAuthCtx();
   const [emailSent, setemailSent] = useState(false);
 
   function submitIn(e) {
@@ -93,9 +95,10 @@ function Footer() {
         </FooterDiv>
         <FooterDiv>
           <Logo>Explore</Logo>
-          <FooterLinks>Largest shops</FooterLinks>
-          <FooterLinks>Luxury shops</FooterLinks>
-          <FooterLinks>Cheap shops</FooterLinks>
+          {isLoggedIn && <FooterLinks to={"/shops"}>All Shops</FooterLinks>}
+          {!isLoggedIn && <FooterLinks to={"/register"}>All Shops</FooterLinks>}
+          {/* <FooterLinks>Luxury shops</FooterLinks>
+          <FooterLinks>Cheap shops</FooterLinks> */}
         </FooterDiv>
         <FooterDiv>
           <Logo>Join our weekly digest</Logo>

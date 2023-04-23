@@ -6,7 +6,6 @@ const ShopCard = styled.div`
   height: 469px;
   max-height: 469px;
   max-width: 330px;
-  border: 1px solid white;
   border-radius: 20px;
 `;
 const CardImg = styled.img`
@@ -58,14 +57,15 @@ const CardTags = styled.span`
 function SingleShopCard({ item }) {
   const navigate = useNavigate();
   const tagas = item?.tags.split(",").map((tag) => tag.trim());
+  const picShop = item?.imageUrl ? item?.imageUrl : "https://cdn.pixabay.com/photo/2019/04/26/07/14/store-4156934_1280.png";
 
   return (
     <ShopCard>
       <Link to={`/shops/${item?.uid}`}>
-        <CardImg src={item?.imageUrl} alt="" />
+        <CardImg src={picShop} alt="" />
       </Link>
       <CardInfo>
-        <CardTitle>{item?.title}</CardTitle>
+        <CardTitle>{item?.shopName}</CardTitle>
         <CardTown>{item?.town}</CardTown>
         <div>
           {tagas?.map((obj) => (
