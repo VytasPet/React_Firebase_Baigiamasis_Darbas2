@@ -79,16 +79,6 @@ function LoginPage() {
     // console.log(email, password);
     signInWithEmailAndPassword(email, password).then(() => {
       toast.dismiss(loadingToastId);
-      // if (user) {
-      //   toast.dismiss(loadingToastId);
-      //   toast.success("Signed in successfully!");
-      // } else if (error) {
-      //   toast.dismiss(loadingToastId);
-      //   toast.error(`Failed to sign in: ${error.message}`);
-      // } else {
-      //   toast.dismiss(loadingToastId);
-      // }
-      //navigate("/shops");
     });
   }
 

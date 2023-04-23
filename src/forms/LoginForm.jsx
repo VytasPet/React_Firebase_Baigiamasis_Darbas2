@@ -97,22 +97,16 @@ function LoginForm({ onLog }) {
   }
 
   return (
-    <>
-      <HalfPageForm onSubmit={formik.handleSubmit}>
-        <LoginTitle>Login details:</LoginTitle>
-        <Links to={"/register"}>Would you like to register?</Links>
-        <Input type="text" name="email" id="email" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} placeholder="Your email" />
-        {formik.errors.email && formik.touched.email && <ErrText>{formik.errors.email}</ErrText>}
-        <Input type="password" name="password" id="password" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} placeholder="Password" />
-        {formik.errors.password && formik.touched.password && <ErrText>{formik.errors.password}</ErrText>}
-        <RegisterButton type="submit">Login</RegisterButton>
-        <RegisterWithGoogle onClick={loginWithGmail}>Login with Google</RegisterWithGoogle>
-      </HalfPageForm>
-      <div>
-        <p>{formik.values.email}</p>
-        <p>{formik.values.password}</p>
-      </div>
-    </>
+    <HalfPageForm onSubmit={formik.handleSubmit}>
+      <LoginTitle>Login details:</LoginTitle>
+      <Links to={"/register"}>Would you like to register?</Links>
+      <Input type="text" name="email" id="email" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} placeholder="Your email" />
+      {formik.errors.email && formik.touched.email && <ErrText>{formik.errors.email}</ErrText>}
+      <Input type="password" name="password" id="password" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} placeholder="Password" />
+      {formik.errors.password && formik.touched.password && <ErrText>{formik.errors.password}</ErrText>}
+      <RegisterButton type="submit">Login</RegisterButton>
+      <RegisterWithGoogle onClick={loginWithGmail}>Login with Google</RegisterWithGoogle>
+    </HalfPageForm>
   );
 }
 
