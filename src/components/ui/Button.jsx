@@ -23,11 +23,7 @@ export const LoginButton = styled(ButtonFullLink)`
   font-size: 12px;
   `}
 `;
-// export const RegisterButton = styled(ButtonFullLink)`
-//   width: 70%;
-//   margin-top: 30px;
-//   padding: 12px 30px;
-// `;
+
 export const RegisterButton = styled.button`
   background-color: #a259ff;
   border-radius: 30px;

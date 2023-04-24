@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { RegisterButton } from "../components/ui/Button";
 import { Input } from "../components/ui/Inputs";
 import * as Yup from "yup";
-import { Startas } from "../components/ui/StartDiv";
 import { media } from "../components/ui/Responsive";
 
 const MainDiv = styled.div`
@@ -17,14 +16,6 @@ const MainDiv = styled.div`
   ${media.tablet`
   flex-direction: column;
   `}
-`;
-const FormName = styled.h2`
-  font-size: 51px;
-`;
-const Description = styled.p`
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 35.2px;
 `;
 
 const HalfPageForm = styled.form`

@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { createContext } from "react";
 import { auth } from "../firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useEffect } from "react";
 
 const AuthContext = createContext({
   user: {},

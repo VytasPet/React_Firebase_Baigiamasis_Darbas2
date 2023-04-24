@@ -13,7 +13,9 @@ const MainDiv = styled.div`
   margin-bottom: 30px;
   max-wight: 100%;
   display: flex;
-  align-items: flex-start ${media.tablet`
+  align-items: flex-start;
+
+  ${media.tablet`
   flex-direction: column;
   `};
 `;

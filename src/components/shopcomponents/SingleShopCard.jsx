@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { media } from "../ui/Responsive";
 
@@ -46,6 +46,7 @@ const CardInfo = styled.div`
 
   ${media.mobile`
   padding: 10px 15px;
+  justify-content: space-around;
   `}
 `;
 const CardTown = styled.p`
@@ -60,15 +61,17 @@ const CardTown = styled.p`
   margin-top:0;
   margin-bottom: 0;
   font-size: 12px;
+  line-height: 0;
   `}
 `;
-const CardTitle = styled.h5`
+const CardTitle = styled.p`
   font-weight: 600;
   font-size: 22px;
   line-height: 30.8px;
 
   ${media.mobile`
   font-size: 16px;
+  line-height: 0;
   `}
 `;
 const CardTags = styled.span`
@@ -80,6 +83,7 @@ const CardTags = styled.span`
   border-radius: 20px;
   :last-child {
     margin-right: 0;
+    line-height: 0;
   }
 
   ${media.mobile`
@@ -87,9 +91,13 @@ const CardTags = styled.span`
   padding: 3px 6px;
   `}
 `;
+const TaguDiv = styled.div`
+  ${media.mobile`
+line-height: 0;
+  `}
+`;
 
 function SingleShopCard({ item }) {
-  const navigate = useNavigate();
   const tagas = item?.tags.split(",").map((tag) => tag.trim());
   const picShop = item?.imageUrl;
 
@@ -101,11 +109,11 @@ function SingleShopCard({ item }) {
       <CardInfo>
         <CardTitle>{item?.shopName}</CardTitle>
         <CardTown>{item?.town}</CardTown>
-        <div>
+        <TaguDiv>
           {tagas?.map((obj) => (
             <CardTags key={obj}>{obj}</CardTags>
           ))}
-        </div>
+        </TaguDiv>
       </CardInfo>
     </ShopCard>
   );

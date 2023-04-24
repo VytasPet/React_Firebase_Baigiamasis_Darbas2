@@ -13,10 +13,8 @@ export const GlobalStyle = createGlobalStyle`
 
   .container{
     padding: 20px 50px;
-  /* apridboti tik maximalu ploti */
   max-width: 1140px;
   margin:0;
-  /* skaiciuoti parastes automatiskai vienodai is kaires ir is desines */
   margin: 0 auto;
   box-sizing: border-box;
   }
