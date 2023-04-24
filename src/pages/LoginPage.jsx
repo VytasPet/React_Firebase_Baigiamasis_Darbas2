@@ -58,7 +58,7 @@ function LoginPage() {
 
   return (
     <MainDiv className="container">
-      <LoginPic src="src/assets/img/registration.jpeg" alt="" />
+      <LoginPic src="https://github.com/VytasPet/React_Firebase_Baigiamasis_Darbas2/blob/f2c66aeebbb899d9bec5927293cfd76a5cc56dff/src/assets/img/Login.jpg" alt="" />
       <LoginForm onLog={loginWithFirebaseHook} />
     </MainDiv>
   );

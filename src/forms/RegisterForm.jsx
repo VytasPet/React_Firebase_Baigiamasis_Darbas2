@@ -86,7 +86,7 @@ function RegisterForm({ onReg }) {
   return (
     <MainDiv className="container">
       {/* <h1>Welcome to Login Page</h1> */}
-      <LoginPic src="src/assets/img/signUp.jpeg" alt="" />
+      <LoginPic src="https://github.com/VytasPet/React_Firebase_Baigiamasis_Darbas2/blob/f2c66aeebbb899d9bec5927293cfd76a5cc56dff/src/assets/img/registration.jpeg" alt="" />
       <HalfPageForm onSubmit={formik.handleSubmit}>
         <LoginTitle>Create account</LoginTitle>
         <AboutLog>Welcome! enter your details and start creating, exploring shops!</AboutLog>

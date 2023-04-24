@@ -87,11 +87,11 @@ function HomePage() {
   return (
     <HeroArea className="container">
       <HalfHero>
-        <LeftMainText>Labas Explore Shops World</LeftMainText>
+        <LeftMainText>Explore Shops World</LeftMainText>
         {!isLoggedIn && <SignUpBtn to={"/register"}>Sign Up</SignUpBtn>}
       </HalfHero>
       <HalfHero>
-        <HeroPic src="src/assets/img/shophero.jpg" alt="" />
+        <HeroPic src="https://github.com/VytasPet/React_Firebase_Baigiamasis_Darbas2/blob/a80405c052e20e95d1c5bfe105e1e4e8176dd5c0/src/assets/img/shophero.jpg" alt="" />
         <PicAboutArea>
           <PicText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sequi laborum tempore exercitationem modi nobis libero earum provident ea harum.</PicText>
         </PicAboutArea>
