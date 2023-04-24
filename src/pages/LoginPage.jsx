@@ -1,16 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
-import { useAuthState, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { RegisterButton } from "../components/ui/Button";
-import { Input } from "../components/ui/Inputs";
 import { media } from "../components/ui/Responsive";
-import { Startas } from "../components/ui/StartDiv";
 import { auth } from "../firebase/firebase";
 import LoginForm from "../forms/LoginForm";
-import { useAuthCtx } from "../store/AuthProvider";
 
 const MainDiv = styled.div`
   margin-top: 30px;
@@ -44,14 +40,8 @@ function LoginPage() {
 
   function loginWithFirebaseHook({ email, password }) {
     const loadingToastId = toast.loading("Signing in...");
-    // console.log("funkcija suveike");
-    // console.log(email, password);
     signInWithEmailAndPassword(email, password).then(() => {
       toast.dismiss(loadingToastId);
-      // if (user) {
-      //   toast.success("Signed in successfully!");
-      //   // Navigate to another page or perform any other action upon successful sign-in.
-      // }
     });
   }
   console.log("user ===", user);
@@ -60,25 +50,10 @@ function LoginPage() {
     if (user) {
       navigate("/shops");
       toast.success("Signed in successfully!");
-      // Navigate to another page or perform any other action upon successful sign-in.
     } else if (error) {
       toast.error(`Failed to sign in: ${error.message}`);
     }
   }, [user, error]);
-
-  // useEffect(() => {}, [loading]);
-
-  // if (error) {
-  //   toast.error("Login failed!");
-  // }
-  // if (loading) {
-  //   toast.loading("Loading...");
-  // }
-
-  // if (user) {
-  //   toast.success("Login success!");
-  //   navigate("/shops");
-  // }
 
   return (
     <MainDiv className="container">
