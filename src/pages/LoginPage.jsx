@@ -17,29 +17,10 @@ const MainDiv = styled.div`
   margin-bottom: 30px;
   max-wight: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-
-  ${media.tablet`
+  align-items: flex-start ${media.tablet`
   flex-direction: column;
-  `}
+  `};
 `;
-// const FormName = styled.h2`
-//   font-size: 51px;
-// `;
-// const Description = styled.p`
-//   font-size: 22px;
-//   font-weight: 400;
-//   line-height: 35.2px;
-// `;
-
-// const HalfPageForm = styled.form`
-//   width: 38%;
-//   display: flex;
-//   align-items: center;
-
-//   flex-direction: column;
-// `;
 
 const LoginPic = styled.img`
   opacity: 0.5;
@@ -56,35 +37,10 @@ const LoginPic = styled.img`
   margin-bottom: 30px;
   `}
 `;
-// const LoginTitle = styled.h2`
-//   font-size: 41px;
-//   margin-bottom: 10px;
-//   color: white;
-//   font-weight: 400;
-// `;
-// const Links = styled(Link)`
-//   color: #cccccc;
-//   font-size: 16px;
-//   font-weight: 400;
-//   margin-bottom: 50px;
-//   display: block;
-//   text-decoration: underline;
-// `;
 
 function LoginPage() {
   const navigate = useNavigate();
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
-
-  // const loginWithFirebaseHook = async ({ email, password }) => {
-  //   const loadingToastId = toast.loading("Signing in...");
-
-  //   try {
-  //     await signInWithEmailAndPassword(email, password);
-  //     toast.success("Signed in successfully!");
-  //   } catch (error) {
-  //     toast.error(`Failed to sign in: ${error.message}`);
-  //   }
-  // };
 
   function loginWithFirebaseHook({ email, password }) {
     const loadingToastId = toast.loading("Signing in...");

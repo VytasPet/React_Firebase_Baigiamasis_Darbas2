@@ -9,6 +9,7 @@ const ShopCard = styled.div`
   min-width: 100%;
   max-width: 100%;
   border-radius: 20px;
+  margin-bottom: 20px;
 
   ${media.tablet`
   height: 369px;
