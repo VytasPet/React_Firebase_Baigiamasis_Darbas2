@@ -34,6 +34,7 @@ function App() {
               <Route path="/shops/:shopUid" element={<SingleShopContent />} />
             </>
           )}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </PageContainer>
       <Footer />
