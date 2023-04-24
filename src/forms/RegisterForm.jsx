@@ -5,6 +5,7 @@ import { RegisterButton } from "../components/ui/Button";
 import { Input } from "../components/ui/Inputs";
 import * as Yup from "yup";
 import { Startas } from "../components/ui/StartDiv";
+import { media } from "../components/ui/Responsive";
 
 const MainDiv = styled.div`
   margin-top: 30px;
@@ -13,6 +14,9 @@ const MainDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  ${media.tablet`
+  flex-direction: column;
+  `}
 `;
 const FormName = styled.h2`
   font-size: 51px;
@@ -29,6 +33,9 @@ const HalfPageForm = styled.form`
   align-items: center;
 
   flex-direction: column;
+  ${media.tablet`
+  width: 100%;
+  `}
 `;
 
 const LoginPic = styled.img`
@@ -37,12 +44,24 @@ const LoginPic = styled.img`
   max-width: 50%;
   max-height: 60vh;
   border-radius: 25px;
+
+  ${media.tablet`
+  max-width: 100%;
+  max-height: 30vh;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 30px;
+  `}
 `;
 const LoginTitle = styled.h2`
   font-size: 41px;
   margin-bottom: 50px;
   color: white;
   font-weight: 400;
+  ${media.tablet`
+  text-align: center;
+  font-size: 31px;
+  `}
 `;
 const AboutLog = styled.p`
   color: #cccccc;

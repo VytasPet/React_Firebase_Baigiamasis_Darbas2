@@ -40,8 +40,8 @@ function App() {
             )}
           </Routes>
         </ContentWrap>
-        <Footer />
       </PageContainer>
+      <Footer />
     </>
   );
 }

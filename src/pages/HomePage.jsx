@@ -16,6 +16,9 @@ const HalfHero = styled.div`
   width: 48%;
   ${media.mobile`
   width: 100%;
+  display:flex;
+  flex-direction: column;
+  margin-bottom:20px;
   `}
 `;
 const LeftMainText = styled.h1`
