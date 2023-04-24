@@ -22,15 +22,28 @@ const FooterContent = styled.div`
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
 
-  ${media.mobile`
+  ${media.tablet`
   grid-template-columns: repeat(2, 1fr);
   justify-items: space-between;
   justify-items: stretch;
+  `}
+  ${media.mobile`
+  grid-template-columns: repeat(1, 1fr);
+  justify-items: center;
   `}
 `;
 
 const FooterDiv = styled.div``;
 const FooterDivDesk = styled.div`
+  ${media.mobile`
+display: none;
+  `}
+  ${media.tablet`
+display: none;
+  `}
+`;
+
+const FooterDivTablet = styled.div`
   ${media.mobile`
 display: none;
   `}
@@ -122,11 +135,11 @@ function Footer() {
           <Logo>Shops explorer</Logo>
           <AboutLog>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur nesciunt itaque recusandae quasi aliquam eum.</AboutLog>
         </FooterDivDesk>
-        <FooterDiv>
+        <FooterDivTablet>
           <Logo>Explore</Logo>
           {isLoggedIn && <FooterLinks to={"/shops"}>All Shops</FooterLinks>}
           {!isLoggedIn && <FooterLinks to={"/register"}>All Shops</FooterLinks>}
-        </FooterDiv>
+        </FooterDivTablet>
         <FooterDiv>
           <Logo>Join our weekly digest</Logo>
           <form onSubmit={submitIn}>
