@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Toaster } from "react-hot-toast";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Footer from "./components/layout/Footer";
+import Header from "./components/layout/Header";
+import SingleShopContent from "./components/shopcomponents/SingleShopContent";
+import AddShopPage from "./pages/AddShopPage";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import ShopsPage from "./pages/ShopsPage";
+import { useAuthCtx } from "./store/AuthProvider";
+import { GlobalStyle } from "./styles/GlobalStyle";
+import { PageContainer } from "./styles/PageContainer";
+
+// import "./styles/reset.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const { isLoggedIn } = useAuthCtx();
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <>
+      <GlobalStyle />
+      <Toaster />
+      <PageContainer>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={isLoggedIn ? <Navigate to={"/shops"} /> : <LoginPage />} />
+          <Route path="/register" element={isLoggedIn ? <Navigate to={"/shops"} /> : <RegisterPage />} />
+          <Route path="/shops" element={!isLoggedIn ? <Navigate to={"/"} /> : <ShopsPage />} />
+          {isLoggedIn && (
+            <>
+              <Route path="/single" element={<SingleShopContent />} />
+              <Route path="/addshop" element={<AddShopPage />} />
+              <Route path="/shops/:shopUid" element={<SingleShopContent />} />
+            </>
+          )}
+        </Routes>
+      </PageContainer>
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;
