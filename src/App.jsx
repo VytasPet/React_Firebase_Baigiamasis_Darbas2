@@ -8,9 +8,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ShopsPage from "./pages/ShopsPage";
-import SingleShopPage from "./pages/SingleShopPage";
 import { useAuthCtx } from "./store/AuthProvider";
-import { ContentWrap } from "./styles/ContentWrap";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import { PageContainer } from "./styles/PageContainer";
 
@@ -23,23 +21,20 @@ function App() {
       <GlobalStyle />
       <Toaster />
       <PageContainer>
-        <ContentWrap>
-          <Header />
-
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={isLoggedIn ? <Navigate to={"/shops"} /> : <LoginPage />} />
-            <Route path="/register" element={isLoggedIn ? <Navigate to={"/shops"} /> : <RegisterPage />} />
-            <Route path="/shops" element={!isLoggedIn ? <Navigate to={"/"} /> : <ShopsPage />} />
-            {isLoggedIn && (
-              <>
-                <Route path="/single" element={<SingleShopContent />} />
-                <Route path="/addshop" element={<AddShopPage />} />
-                <Route path="/shops/:shopUid" element={<SingleShopContent />} />
-              </>
-            )}
-          </Routes>
-        </ContentWrap>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={isLoggedIn ? <Navigate to={"/shops"} /> : <LoginPage />} />
+          <Route path="/register" element={isLoggedIn ? <Navigate to={"/shops"} /> : <RegisterPage />} />
+          <Route path="/shops" element={!isLoggedIn ? <Navigate to={"/"} /> : <ShopsPage />} />
+          {isLoggedIn && (
+            <>
+              <Route path="/single" element={<SingleShopContent />} />
+              <Route path="/addshop" element={<AddShopPage />} />
+              <Route path="/shops/:shopUid" element={<SingleShopContent />} />
+            </>
+          )}
+        </Routes>
       </PageContainer>
       <Footer />
     </>
