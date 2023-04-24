@@ -89,7 +89,7 @@ function LoginForm({ onLog }) {
         // IdP data available using getAdditionalUserInfo(result)
         // ...
         console.log("user ===", user);
-        navigate("/");
+        navigate("/shops");
       })
       .catch((error) => {
         // Handle Errors here.

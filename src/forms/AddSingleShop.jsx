@@ -26,6 +26,7 @@ const InputBig = styled.input`
   margin-bottom: 10px;
   border: 2px solid #a259ff;
   margin-bottom: 20px;
+  text-align: center;
 
   ${media.tablet`
  min-width: 60%;

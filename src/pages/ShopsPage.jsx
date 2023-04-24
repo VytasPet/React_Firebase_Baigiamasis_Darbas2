@@ -54,7 +54,7 @@ const ShopsSection = styled.div`
   justify-items: center;
   gap: 20px;
 
-  ${media.mobile`
+  ${media.tablet`
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
   gap: 10px;

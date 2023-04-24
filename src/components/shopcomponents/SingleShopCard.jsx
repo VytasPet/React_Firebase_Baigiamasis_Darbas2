@@ -6,7 +6,8 @@ import { media } from "../ui/Responsive";
 const ShopCard = styled.div`
   height: 469px;
   max-height: 469px;
-  max-width: 330px;
+  min-width: 100%;
+  max-width: 100%;
   border-radius: 20px;
 
   ${media.tablet`
@@ -15,8 +16,8 @@ const ShopCard = styled.div`
   `}
 
   ${media.mobile`
-  height: 269px;
-  max-height: 269px;
+  height: 229px;
+  max-height: 229px;
   `}
 `;
 const CardImg = styled.img`
@@ -33,7 +34,8 @@ const CardInfo = styled.div`
   height: 25%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
   padding: 20px 30px;
   text-align: center;
   background-color: #3b3b3b;
@@ -51,9 +53,11 @@ const CardTown = styled.p`
   font-family: Space Mono;
   max-width: 100%;
   margin-top: 5px;
+  margin-bottom: 10px;
 
   ${media.mobile`
   margin-top:0;
+  margin-bottom: 0;
   font-size: 12px;
   `}
 `;
@@ -73,6 +77,9 @@ const CardTags = styled.span`
   font-size: 12px;
   margin-right: 5px;
   border-radius: 20px;
+  :last-child {
+    margin-right: 0;
+  }
 
   ${media.mobile`
   font-size: 8px;
