@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { RegisterButton } from "../components/ui/Button";
 import { Input } from "../components/ui/Inputs";
+import { media } from "../components/ui/Responsive";
 import { Startas } from "../components/ui/StartDiv";
 import { auth } from "../firebase/firebase";
 import LoginForm from "../forms/LoginForm";
@@ -18,6 +19,10 @@ const MainDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  ${media.tablet`
+  flex-direction: column;
+  `}
 `;
 // const FormName = styled.h2`
 //   font-size: 51px;
@@ -42,6 +47,14 @@ const LoginPic = styled.img`
   max-width: 50%;
   max-height: 60vh;
   border-radius: 25px;
+
+  ${media.tablet`
+  max-width: 100%;
+  max-height: 30vh;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 30px;
+  `}
 `;
 // const LoginTitle = styled.h2`
 //   font-size: 41px;

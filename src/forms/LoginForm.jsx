@@ -9,12 +9,16 @@ import { Input } from "../components/ui/Inputs";
 import * as Yup from "yup";
 import { auth, googleProvider } from "../firebase/firebase";
 import toast from "react-hot-toast";
+import { media } from "../components/ui/Responsive";
 
 const LoginTitle = styled.h2`
   font-size: 41px;
   margin-bottom: 10px;
   color: white;
   font-weight: 400;
+  ${media.tablet`
+  font-size: 31px;
+  `}
 `;
 const Links = styled(Link)`
   color: #cccccc;
@@ -43,8 +47,11 @@ const HalfPageForm = styled.form`
   width: 70%;
   display: flex;
   align-items: center;
-
   flex-direction: column;
+
+  ${media.tablet`
+  width: 100%;
+  `}
 `;
 const AllLogins = styled.div`
   width: 100%;
