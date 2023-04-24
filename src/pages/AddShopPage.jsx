@@ -8,6 +8,7 @@ import { RegisterButton } from "../components/ui/Button";
 import { media } from "../components/ui/Responsive";
 import { db } from "../firebase/firebase";
 import AddSingleShop from "../forms/AddSingleShop";
+import addPage from "/src/assets/img/addShop.jpg";
 
 const MainDiv = styled.div`
   margin-top: 30px;
@@ -46,7 +47,7 @@ function AddNewShop() {
   return (
     <MainDiv className="container">
       {/* <h1>Welcome to Login Page</h1> */}
-      <LoginPic src="/src/assets/img/addShop.jpg" alt="" />
+      <LoginPic src={addPage} alt="" />
       <AddSingleShop addShop={addNewShop} />
     </MainDiv>
   );

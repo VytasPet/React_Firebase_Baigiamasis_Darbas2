@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { media } from "../components/ui/Responsive";
 import { auth } from "../firebase/firebase";
 import LoginForm from "../forms/LoginForm";
+import loginPageImg from "/src/assets/img/Login.jpg";
 
 const MainDiv = styled.div`
   margin-top: 30px;
@@ -58,7 +59,7 @@ function LoginPage() {
 
   return (
     <MainDiv className="container">
-      <LoginPic src="/src/assets/img/Login.jpg" alt="login picture" />
+      <LoginPic src={loginPageImg} alt="login picture" />
       <LoginForm onLog={loginWithFirebaseHook} />
     </MainDiv>
   );

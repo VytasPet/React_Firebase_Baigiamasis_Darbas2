@@ -5,6 +5,7 @@ import { RegisterButton } from "../components/ui/Button";
 import { Input } from "../components/ui/Inputs";
 import * as Yup from "yup";
 import { media } from "../components/ui/Responsive";
+import registerImg from "/src/assets/img/registration.jpeg";
 
 const MainDiv = styled.div`
   margin-top: 30px;
@@ -86,7 +87,7 @@ function RegisterForm({ onReg }) {
   return (
     <MainDiv className="container">
       {/* <h1>Welcome to Login Page</h1> */}
-      <LoginPic src="/src/assets/img/registration.jpeg" alt="" />
+      <LoginPic src={registerImg} alt="" />
       <HalfPageForm onSubmit={formik.handleSubmit}>
         <LoginTitle>Create account</LoginTitle>
         <AboutLog>Welcome! enter your details and start creating, exploring shops!</AboutLog>
