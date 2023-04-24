@@ -46,9 +46,7 @@ const NoShops = styled(AboutLog)`
 const ShopsSection = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
-  /* display: flex;
-  flex-wrap: wrap;
-  flex-direction: row; */
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
@@ -75,8 +73,6 @@ function ShopsPage() {
   }, [loading]);
 
   const shopsWithUid = value && value.docs.map((doc) => ({ uid: doc.id, ...doc.data() }));
-
-  console.log("shopsWithUid ===", shopsWithUid);
 
   return (
     <>

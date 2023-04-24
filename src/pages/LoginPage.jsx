@@ -44,7 +44,6 @@ function LoginPage() {
       toast.dismiss(loadingToastId);
     });
   }
-  console.log("user ===", user);
 
   useEffect(() => {
     if (user) {
@@ -57,7 +56,6 @@ function LoginPage() {
 
   return (
     <MainDiv className="container">
-      {/* <h1>Welcome to Login Page</h1> */}
       <LoginPic src="src/assets/img/registration.jpeg" alt="" />
       <LoginForm onLog={loginWithFirebaseHook} />
     </MainDiv>

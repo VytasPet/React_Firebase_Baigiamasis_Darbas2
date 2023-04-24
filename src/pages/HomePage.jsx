@@ -1,18 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { ButtonFullLink } from "../components/ui/Button";
 import { media } from "../components/ui/Responsive";
 import { useAuthCtx } from "../store/AuthProvider";
 
-const HeroBgc = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
-  height: 100vh;
-  position: relative;
-`;
 const HalfHero = styled.div`
   width: 48%;
   ${media.mobile`
@@ -36,18 +27,6 @@ const LeftMainText = styled.h1`
   `}
 `;
 
-const HeroImg = styled.img`
-  border-radius: 25px;
-  width: 50%;
-`;
-
-const ShopHeroText = styled.h1`
-  color: #ffffff;
-  font-size: 5rem;
-  font-weight: 800;
-  padding: 5rem;
-  background-color: #cebbaad3;
-`;
 const HeroArea = styled.div`
   display: flex;
   margin-top: 70px;

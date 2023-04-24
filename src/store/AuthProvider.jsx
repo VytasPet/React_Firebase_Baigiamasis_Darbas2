@@ -6,22 +6,13 @@ import { useEffect } from "react";
 
 const AuthContext = createContext({
   user: {},
-  //   login() {},
-  //   logout() {},
   isLoggedIn: false,
-  feedback: {
-    show: false,
-    msg: "",
-    type: "",
-  },
 });
 
 function AuthProvider({ children }) {
   const [user, userLoading, userError] = useAuthState(auth);
 
   const isLoggedIn = !!user;
-  console.log("user ===", user);
-  console.log("isLoggedIn ===", isLoggedIn);
 
   const authCtx = {
     user,
