@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { media } from "../components/ui/Responsive";
 import { useAuthCtx } from "../store/AuthProvider";
+import heroPic from "/src/assets/img/shophero.jpg";
 
 const HalfHero = styled.div`
   width: 48%;
@@ -91,7 +92,7 @@ function HomePage() {
         {!isLoggedIn && <SignUpBtn to={"/register"}>Sign Up</SignUpBtn>}
       </HalfHero>
       <HalfHero>
-        <HeroPic src="src/assets/img/shophero.jpg" alt="hero pic" />
+        <HeroPic src={heroPic} alt="hero pic" />
         <PicAboutArea>
           <PicText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sequi laborum tempore exercitationem modi nobis libero earum provident ea harum.</PicText>
         </PicAboutArea>
