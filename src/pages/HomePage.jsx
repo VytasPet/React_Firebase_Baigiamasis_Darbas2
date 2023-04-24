@@ -87,7 +87,7 @@ function HomePage() {
   return (
     <HeroArea className="container">
       <HalfHero>
-        <LeftMainText>Explore Shops World</LeftMainText>
+        <LeftMainText>Labas Explore Shops World</LeftMainText>
         {!isLoggedIn && <SignUpBtn to={"/register"}>Sign Up</SignUpBtn>}
       </HalfHero>
       <HalfHero>
