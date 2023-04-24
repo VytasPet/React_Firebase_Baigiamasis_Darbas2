@@ -10,6 +10,10 @@ export const ButtonFullLink = styled(Link)`
   color: white;
   display: inline-block;
   text-align: center;
+
+  ${media.mobile`
+ max-width:50%;
+  `}
 `;
 export const LoginButton = styled(ButtonFullLink)`
   margin-left: 30px;

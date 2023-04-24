@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ButtonFullLink } from "../components/ui/Button";
 import { media } from "../components/ui/Responsive";
@@ -19,6 +20,7 @@ const HalfHero = styled.div`
   display:flex;
   flex-direction: column;
   margin-bottom:20px;
+  align-items:center;
   `}
 `;
 const LeftMainText = styled.h1`
@@ -85,6 +87,21 @@ const PicText = styled.p`
   `}
 `;
 
+const SignUpBtn = styled(Link)`
+  background-color: #a259ff;
+  border-radius: 30px;
+  padding: 20px 30px;
+  font-size: 16px;
+  color: white;
+  display: inline-block;
+  text-align: center;
+
+  ${media.mobile`
+ max-width:50%;
+ padding: 20px 50px;
+  `}
+`;
+
 function HomePage() {
   const { isLoggedIn } = useAuthCtx();
 
@@ -92,7 +109,7 @@ function HomePage() {
     <HeroArea className="container">
       <HalfHero>
         <LeftMainText>Explore Shops World</LeftMainText>
-        {!isLoggedIn && <ButtonFullLink to={"/register"}>Sign Up</ButtonFullLink>}
+        {!isLoggedIn && <SignUpBtn to={"/register"}>Sign Up</SignUpBtn>}
       </HalfHero>
       <HalfHero>
         <HeroPic src="src/assets/img/shophero.jpg" alt="" />
