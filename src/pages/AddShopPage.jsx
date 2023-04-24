@@ -46,7 +46,7 @@ function AddNewShop() {
   return (
     <MainDiv className="container">
       {/* <h1>Welcome to Login Page</h1> */}
-      <LoginPic src="src/assets/img/addShop.jpg" alt="" />
+      <LoginPic src="/src/assets/img/addShop.jpg" alt="" />
       <AddSingleShop addShop={addNewShop} />
     </MainDiv>
   );

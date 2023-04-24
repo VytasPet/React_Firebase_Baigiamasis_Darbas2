@@ -58,7 +58,7 @@ function LoginPage() {
 
   return (
     <MainDiv className="container">
-      <LoginPic src="https://madeinvilnius.lt/wp-content/uploads/2019/05/64565456456456.jpg" alt="login picture" />
+      <LoginPic src="/src/assets/img/Login.jpg" alt="login picture" />
       <LoginForm onLog={loginWithFirebaseHook} />
     </MainDiv>
   );
