@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { RegisterButton } from "../components/ui/Button";
 import { useAuthCtx } from "../store/AuthProvider";
 import * as Yup from "yup";
+import { media } from "../components/ui/Responsive";
 
 const FormName = styled.h2`
   font-size: 51px;
@@ -36,6 +37,10 @@ const HalfPageForm = styled.form`
   width: 38%;
   display: flex;
   flex-direction: column;
+
+  ${media.mobile`
+ width: 100%;
+  `}
 `;
 
 const LoginTitle = styled.h2`
@@ -43,6 +48,9 @@ const LoginTitle = styled.h2`
   margin-bottom: 40px;
   color: white;
   font-weight: 400;
+  ${media.mobile`
+  text-align: center;
+  `}
 `;
 const Links = styled(Link)`
   color: #cccccc;

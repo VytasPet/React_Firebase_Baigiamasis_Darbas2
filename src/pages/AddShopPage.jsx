@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { RegisterButton } from "../components/ui/Button";
+import { media } from "../components/ui/Responsive";
 import { db } from "../firebase/firebase";
 import AddSingleShop from "../forms/AddSingleShop";
 
@@ -22,6 +23,10 @@ const LoginPic = styled.img`
   max-width: 50%;
   max-height: 60vh;
   border-radius: 25px;
+
+  ${media.mobile`
+display:none;
+  `}
 `;
 
 function AddNewShop() {

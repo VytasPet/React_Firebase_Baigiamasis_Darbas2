@@ -9,6 +9,11 @@ const ShopCard = styled.div`
   max-width: 330px;
   border-radius: 20px;
 
+  ${media.tablet`
+  height: 369px;
+  max-height: 369px;
+  `}
+
   ${media.mobile`
   height: 269px;
   max-height: 269px;
