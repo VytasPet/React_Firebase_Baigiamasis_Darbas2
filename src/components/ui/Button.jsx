@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { media } from "./Responsive";
 
 export const ButtonFullLink = styled(Link)`
   background-color: #a259ff;
@@ -12,6 +13,11 @@ export const ButtonFullLink = styled(Link)`
 `;
 export const LoginButton = styled(ButtonFullLink)`
   margin-left: 30px;
+  ${media.mobile`
+  margin-left: 15px;
+  padding: 10px 15px;
+  font-size: 12px;
+  `}
 `;
 // export const RegisterButton = styled(ButtonFullLink)`
 //   width: 70%;

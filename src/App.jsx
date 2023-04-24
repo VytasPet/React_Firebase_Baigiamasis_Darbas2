@@ -30,9 +30,9 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={isLoggedIn ? <Navigate to={"/shops"} /> : <LoginPage />} />
             <Route path="/register" element={isLoggedIn ? <Navigate to={"/shops"} /> : <RegisterPage />} />
+            <Route path="/shops" element={!isLoggedIn ? <Navigate to={"/"} /> : <ShopsPage />} />
             {isLoggedIn && (
               <>
-                <Route path="/shops" element={<ShopsPage />} />
                 <Route path="/single" element={<SingleShopContent />} />
                 <Route path="/addshop" element={<AddShopPage />} />
                 <Route path="/shops/:shopUid" element={<SingleShopContent />} />

@@ -4,6 +4,7 @@ import { useDocument } from "react-firebase-hooks/firestore";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { db } from "../../firebase/firebase";
+import { media } from "../ui/Responsive";
 
 const MainImg = styled.img`
   width: 100%;
@@ -16,10 +17,16 @@ const PageTitle = styled.h1`
   line-height: 73.7px;
   margin-bottom: 10px;
   color: white;
+  ${media.mobile`
+  font-size: 41px;
+  `}
 `;
 const SingleShopMainDiv = styled.div`
   margin-top: 40px;
   margin-bottom: 40px;
+  ${media.mobile`
+  margin: 0;
+  `}
 `;
 const Content = styled.p`
   color: #cccccc;

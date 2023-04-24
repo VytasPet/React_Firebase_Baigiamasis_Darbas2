@@ -1,17 +1,22 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { media } from "../ui/Responsive";
 
 const ShopCard = styled.div`
   height: 469px;
   max-height: 469px;
   max-width: 330px;
   border-radius: 20px;
+
+  ${media.mobile`
+  height: 269px;
+  max-height: 269px;
+  `}
 `;
 const CardImg = styled.img`
   width: 100%;
   height: 68%;
-  max-height: ;
   display: block;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -21,7 +26,6 @@ const CardImg = styled.img`
 const CardInfo = styled.div`
   max-width: 100%;
   height: 25%;
-  max-height: 25%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -31,6 +35,10 @@ const CardInfo = styled.div`
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   color: white;
+
+  ${media.mobile`
+  padding: 10px 15px;
+  `}
 `;
 const CardTown = styled.p`
   font-weight: 400;
@@ -38,11 +46,20 @@ const CardTown = styled.p`
   font-family: Space Mono;
   max-width: 100%;
   margin-top: 5px;
+
+  ${media.mobile`
+  margin-top:0;
+  font-size: 12px;
+  `}
 `;
 const CardTitle = styled.h5`
   font-weight: 600;
   font-size: 22px;
   line-height: 30.8px;
+
+  ${media.mobile`
+  font-size: 16px;
+  `}
 `;
 const CardTags = styled.span`
   padding: 5px 10px;
@@ -50,8 +67,12 @@ const CardTags = styled.span`
   background-color: #a259ff;
   font-size: 12px;
   margin-right: 5px;
-  display: inline-block;
   border-radius: 20px;
+
+  ${media.mobile`
+  font-size: 8px;
+  padding: 3px 6px;
+  `}
 `;
 
 function SingleShopCard({ item }) {

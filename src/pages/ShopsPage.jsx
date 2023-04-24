@@ -7,18 +7,29 @@ import { collection } from "firebase/firestore";
 import { useState } from "react";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+import { media } from "../components/ui/Responsive";
 
 const PageTitle = styled.h1`
   font-size: 67px;
   line-height: 73.7px;
   margin-bottom: 30px;
   color: white;
+
+  ${media.mobile`
+  font-size: 47px;
+    line-height: 53.7px;
+    text-align: center;
+  `}
 `;
 const TitleDiv = styled.div`
   margin-top: 40px;
   margin-bottom: 40px;
   text-align: center;
   border-bottom: 1px solid white;
+
+  ${media.mobile`
+margin: 0;
+  `}
 `;
 const AboutLog = styled.p`
   color: #cccccc;
@@ -42,6 +53,12 @@ const ShopsSection = styled.div`
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   gap: 20px;
+
+  ${media.mobile`
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  gap: 10px;
+  `}
 `;
 
 function ShopsPage() {
