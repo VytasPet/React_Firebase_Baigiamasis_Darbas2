@@ -26,11 +26,21 @@ const InputBig = styled.input`
   margin-bottom: 10px;
   border: 2px solid #a259ff;
   margin-bottom: 20px;
+
+  ${media.tablet`
+ min-width: 60%;
+ align-items: center
+  `}
 `;
 
 const InputSmall = styled(InputBig)`
   width: 100px;
   min-height: 20px;
+
+  ${media.tablet`
+ min-width: 40%;
+ align-items: center
+  `}
 `;
 
 const HalfPageForm = styled.form`
@@ -38,8 +48,9 @@ const HalfPageForm = styled.form`
   display: flex;
   flex-direction: column;
 
-  ${media.mobile`
+  ${media.tablet`
  width: 100%;
+ align-items: center
   `}
 `;
 
@@ -48,7 +59,7 @@ const LoginTitle = styled.h2`
   margin-bottom: 40px;
   color: white;
   font-weight: 400;
-  ${media.mobile`
+  ${media.tablet`
   text-align: center;
   `}
 `;

@@ -36,6 +36,10 @@ export const RegisterButton = styled.button`
   width: 70%;
   margin-top: 30px;
   padding: 12px 30px;
+
+  ${media.tablet`
+  margin-top:30px;
+  `}
 `;
 export const RegisterWithGoogle = styled(RegisterButton)`
   border: 1px solid #a259ff;

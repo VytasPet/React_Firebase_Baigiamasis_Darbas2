@@ -24,7 +24,7 @@ const LoginPic = styled.img`
   max-height: 60vh;
   border-radius: 25px;
 
-  ${media.mobile`
+  ${media.tablet`
 display:none;
   `}
 `;
