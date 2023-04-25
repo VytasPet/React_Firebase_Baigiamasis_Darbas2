@@ -57,6 +57,10 @@ const ShopsSection = styled.div`
   justify-items: center;
   gap: 10px;
   `}
+
+  ${media.mobile`
+  grid-template-columns: repeat(1, 1fr);
+  `}
 `;
 
 function ShopsPage() {

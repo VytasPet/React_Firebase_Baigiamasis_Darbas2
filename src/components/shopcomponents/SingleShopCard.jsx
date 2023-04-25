@@ -15,11 +15,6 @@ const ShopCard = styled.div`
   height: 369px;
   max-height: 369px;
   `}
-
-  ${media.mobile`
-  height: 229px;
-  max-height: 229px;
-  `}
 `;
 const CardImg = styled.img`
   width: 100%;
