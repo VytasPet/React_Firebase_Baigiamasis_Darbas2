@@ -28,7 +28,7 @@ const NavLinkai = styled(NavLink)`
     color: white;
     background-color: #3b3b3b;
   }
-  :active {
+  &.active {
     color: white;
     background-color: #3b3b3b;
   }
