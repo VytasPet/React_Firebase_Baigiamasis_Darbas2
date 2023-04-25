@@ -29,7 +29,6 @@ function App() {
           <Route path="/shops" element={!isLoggedIn ? <Navigate to={"/"} /> : <ShopsPage />} />
           {isLoggedIn && (
             <>
-              <Route path="/single" element={<SingleShopContent />} />
               <Route path="/addshop" element={<AddShopPage />} />
               <Route path="/shops/:shopUid" element={<SingleShopContent />} />
             </>

@@ -3,8 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Logout from "../../forms/Logout";
 import { useAuthCtx } from "../../store/AuthProvider";
-import { ButtonFullLink, LoginButton } from "../ui/Button";
-import Flexas from "../ui/Flex";
+import { LoginButton } from "../ui/Button";
+
 import { media } from "../ui/Responsive";
 
 export const Headeris = styled.header`
