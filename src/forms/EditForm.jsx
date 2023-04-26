@@ -123,8 +123,10 @@ function EditForm() {
       imageUrl: Yup.string().min(5).required(),
     }),
     onSubmit: async (values) => {
-      console.log("Form values:", values);
-      const shopWithUid = { userUid: user.uid, uid: shopUid, ...values };
+      const tagai = values.tags.split(",").map((tag) => tag.trim());
+      console.log("tagai ===", tagai);
+      const { tags, ...otherValues } = values;
+      const shopWithUid = { userUid: user.uid, tags: tagai, ...otherValues };
       console.log("shopWithUid ===", shopWithUid);
 
       try {
