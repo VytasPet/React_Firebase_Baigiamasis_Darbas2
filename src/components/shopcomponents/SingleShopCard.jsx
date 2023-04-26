@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useAuthCtx } from "../../store/AuthProvider";
+import { DeleteButton, EditButton } from "../ui/Button";
 import { media } from "../ui/Responsive";
 
 const ShopCard = styled.div`
@@ -27,7 +29,7 @@ const CardImg = styled.img`
 
 const CardInfo = styled.div`
   max-width: 100%;
-  height: 25%;
+  height: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -91,10 +93,46 @@ const TaguDiv = styled.div`
 line-height: 0;
   `}
 `;
+const ButtonsDiv = styled.div`
+  margin-top: 10px;
+  display: flex;
+  ${media.mobile`
+  margin-top: 0;
+  `}
+`;
+
+const EdditBtn = styled(Link)`
+  background-color: #a259ff;
+  border-radius: 30px;
+  border: none;
+  padding: 20px 30px;
+  font-size: 16px;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  width: 70%;
+  padding: 12px 30px;
+  border: 1px solid #a259ff;
+  background-color: #a159ff27;
+  margin-top: 70px;
+  margin-top: 0;
+  display: inline-block;
+  width: 50%;
+  background-color: #a159ffad;
+  font-size: 12px;
+  margin: 0;
+  border: none;
+
+  ${media.tablet`
+
+`}
+`;
 
 function SingleShopCard({ item }) {
   const tagas = item?.tags.split(",").map((tag) => tag.trim());
   const picShop = item?.imageUrl;
+  const { user } = useAuthCtx();
+  const toShow = item.userUid === user.uid;
 
   return (
     <ShopCard>
@@ -109,6 +147,12 @@ function SingleShopCard({ item }) {
             <CardTags key={obj}>{obj}</CardTags>
           ))}
         </TaguDiv>
+        {toShow && (
+          <ButtonsDiv>
+            <EdditBtn to={`/edit/${item?.uid}`}>Edit</EdditBtn>
+            <DeleteButton>Delete</DeleteButton>
+          </ButtonsDiv>
+        )}
       </CardInfo>
     </ShopCard>
   );

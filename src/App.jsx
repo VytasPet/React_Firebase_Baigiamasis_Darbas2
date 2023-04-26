@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import SingleShopContent from "./components/shopcomponents/SingleShopContent";
+import EditForm from "./forms/EditForm";
 import AddShopPage from "./pages/AddShopPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
@@ -31,6 +32,7 @@ function App() {
           <Route path="/addshop" element={!isLoggedIn ? <Navigate to={"/"} /> : <AddShopPage />} />
           <Route path="/myshops" element={!isLoggedIn ? <Navigate to={"/"} /> : <MyShopsPage />} />
           <Route path="/shops/:shopUid" element={!isLoggedIn ? <Navigate to={"/"} /> : <SingleShopContent />} />
+          <Route path="/edit/:shopUid" element={!isLoggedIn ? <Navigate to={"/"} /> : <EditForm />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </PageContainer>

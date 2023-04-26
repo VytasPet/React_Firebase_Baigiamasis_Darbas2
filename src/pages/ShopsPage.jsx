@@ -56,6 +56,7 @@ const ShopsSection = styled.div`
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
   gap: 10px;
+  grid-row-gap: 20px;
   `}
 
   ${media.mobile`
