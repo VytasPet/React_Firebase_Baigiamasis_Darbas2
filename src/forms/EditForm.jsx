@@ -119,7 +119,7 @@ function EditForm() {
       description: Yup.string().min(6).required(),
       town: Yup.string().min(5).required(),
       startYear: Yup.number().min(1970).max(2022).required(),
-      tags: Yup.min(2).required(),
+      tags: Yup.string().min(2).required(),
       imageUrl: Yup.string().min(5).required(),
     }),
     onSubmit: async (values) => {
