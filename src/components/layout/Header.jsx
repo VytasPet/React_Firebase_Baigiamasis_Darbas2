@@ -61,6 +61,7 @@ function Header() {
           <>
             <NavLinkai to={"/shops"}>Shops</NavLinkai>
             <NavLinkai to={"/addshop"}>Add Shop</NavLinkai>
+            <NavLinkai to={"/myshops"}>MyShops</NavLinkai>
           </>
         )}
         {!isLoggedIn && <LoginButton to={"/login"}>Login</LoginButton>}
