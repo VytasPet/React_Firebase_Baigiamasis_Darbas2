@@ -3,7 +3,7 @@ import styled from "styled-components";
 import SingleShopCard from "../components/shopcomponents/SingleShopCard";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "../firebase/firebase";
-import { collection } from "firebase/firestore";
+import { collection, deleteDoc, doc } from "firebase/firestore";
 import { useState } from "react";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
@@ -69,6 +69,18 @@ function ShopsPage() {
   const [value, loading, error] = useCollection(shopsCollRef);
   const [loadingToast, setloadingToast] = useState(null);
 
+  async function deleteShopFunc(shopUid) {
+    try {
+      const itemRef = doc(db, "shops", shopUid);
+      await deleteDoc(itemRef);
+      console.log("Item deleted successfully");
+      toast.success("Successfully deleted shop!");
+    } catch (error) {
+      console.error("Error deleting item:", error);
+      toast.error("Error to delet shop!");
+    }
+  }
+
   useEffect(() => {
     if (loading) {
       setloadingToast(toast.loading("Loading..."));
@@ -86,7 +98,7 @@ function ShopsPage() {
         {value && shopsWithUid.length > 1 && <AboutLog>You can find shops from all around the world!</AboutLog>}
       </TitleDiv>
       {value && shopsWithUid.length < 1 && <NoShops>No shops at the moment...</NoShops>}
-      <ShopsSection className="container">{value && shopsWithUid.map((shop) => <SingleShopCard key={shop.uid} item={shop} />)}</ShopsSection>
+      <ShopsSection className="container">{value && shopsWithUid.map((shop) => <SingleShopCard deleteShop={deleteShopFunc} key={shop.uid} item={shop} />)}</ShopsSection>
     </>
   );
 }

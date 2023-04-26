@@ -128,7 +128,7 @@ const EdditBtn = styled(Link)`
 `}
 `;
 
-function SingleShopCard({ item }) {
+function SingleShopCard({ item, deleteShop }) {
   const tagas = item?.tags.split(",").map((tag) => tag.trim());
   const picShop = item?.imageUrl;
   const { user } = useAuthCtx();
@@ -150,7 +150,7 @@ function SingleShopCard({ item }) {
         {toShow && (
           <ButtonsDiv>
             <EdditBtn to={`/edit/${item?.uid}`}>Edit</EdditBtn>
-            <DeleteButton>Delete</DeleteButton>
+            <DeleteButton onClick={() => deleteShop(item?.uid)}>Delete</DeleteButton>
           </ButtonsDiv>
         )}
       </CardInfo>
