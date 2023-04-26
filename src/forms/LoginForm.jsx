@@ -64,8 +64,8 @@ function LoginForm({ onLog }) {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "testas@testas.com",
+      password: "123123",
     },
     validationSchema: Yup.object({
       email: Yup.string().email().min(3).required(),
