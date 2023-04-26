@@ -95,12 +95,14 @@ function AddSingleShop({ addShop }) {
       description: Yup.string().min(6).required(),
       town: Yup.string().min(5).required(),
       startYear: Yup.number().min(1970).max(2022).required(),
-      tags: Yup.string().min(2).required(),
+      tags: Yup.string().min(1).required(),
       imageUrl: Yup.string().min(5).required(),
     }),
     onSubmit: (values) => {
-      console.log("Form values:", values);
-      const shopWithUid = { userUid: user.uid, ...values };
+      const tagai = values.tags.split(",").map((tag) => tag.trim());
+      console.log("tagai ===", tagai);
+      const { tags, ...otherValues } = values;
+      const shopWithUid = { userUid: user.uid, tags: tagai, ...otherValues };
       console.log("shopWithUid ===", shopWithUid);
       addShop(shopWithUid);
     },

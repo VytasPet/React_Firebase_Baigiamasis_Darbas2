@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { media } from "../components/ui/Responsive";
+import { Link } from "react-router-dom";
 
 const PageTitle = styled.h1`
   font-size: 67px;
@@ -63,11 +64,72 @@ const ShopsSection = styled.div`
   grid-template-columns: repeat(1, 1fr);
   `}
 `;
+const Filters = styled.p`
+  color: #858584;
+  font-family: Space Mono;
+  font-size: 22px;
+  font-weight: 700;
+  display: inline-block;
+  margin-right: 20px;
+`;
+
+const CardTags = styled.button`
+  border: none;
+  padding: 5px 10px;
+  font-weight: 600;
+  background-color: #a28dbe;
+  font-size: 12px;
+  margin-right: 5px;
+  border-radius: 20px;
+  :last-child {
+    margin-right: 0;
+  }
+
+  ${media.mobile`
+  font-size: 8px;
+  padding: 3px 6px;
+  `}
+`;
+const ShowAll = styled(CardTags)`
+  background-color: #ffffff;
+  color: #3b3b3b;
+`;
 
 function ShopsPage() {
+  const [fullFiltersArr, setfullFiltersArr] = useState([]);
+  const [arrToShow, setarrToShow] = useState([]);
   const shopsCollRef = collection(db, "shops");
   const [value, loading, error] = useCollection(shopsCollRef);
   const [loadingToast, setloadingToast] = useState(null);
+
+  function filterWord(word) {
+    console.log("filt ===", word);
+    if (word === "Show all") {
+      setarrToShow(shopsWithUid);
+    } else {
+      setarrToShow(shopsWithUid.filter((shop) => shop.tags.includes(word)));
+    }
+  }
+
+  let filts;
+  useEffect(() => {
+    filts = [];
+    if (shopsWithUid) {
+      shopsWithUid.map((shop) => shop.tags.map((tag) => filts.push(tag)));
+      setarrToShow(shopsWithUid);
+    }
+    setfullFiltersArr(filts);
+  }, [value]);
+
+  // let filts;
+  // useEffect(() => {
+  //   if (shopsWithUid) {
+  //     console.log("shopsWithUid ===", shopsWithUid);
+  //     // shopsWithUid.map((tags) => tags.map((tag) => filts.push(tag)));
+  //   }
+  //   console.log("filts ===", filts);
+  //   setfullFiltersArr();
+  // }, [value]);
 
   async function deleteShopFunc(shopUid) {
     try {
@@ -81,14 +143,6 @@ function ShopsPage() {
     }
   }
 
-  useEffect(() => {
-    if (loading) {
-      setloadingToast(toast.loading("Loading..."));
-    } else {
-      toast.dismiss(loadingToast);
-    }
-  }, [loading]);
-
   const shopsWithUid = value && value.docs.map((doc) => ({ uid: doc.id, ...doc.data() }));
 
   return (
@@ -98,7 +152,14 @@ function ShopsPage() {
         {value && shopsWithUid.length > 1 && <AboutLog>You can find shops from all around the world!</AboutLog>}
       </TitleDiv>
       {value && shopsWithUid.length < 1 && <NoShops>No shops at the moment...</NoShops>}
-      <ShopsSection className="container">{value && shopsWithUid.map((shop) => <SingleShopCard deleteShop={deleteShopFunc} key={shop.uid} item={shop} />)}</ShopsSection>
+      <div className="container">
+        <Filters>Filters:</Filters>
+        <ShowAll onClick={() => filterWord("Show all")}>Show all</ShowAll>
+        {fullFiltersArr.map((filt) => (
+          <CardTags onClick={() => filterWord(filt)}>{` ${filt}`}</CardTags>
+        ))}
+      </div>
+      <ShopsSection className="container">{value && arrToShow.map((shop) => <SingleShopCard deleteShop={deleteShopFunc} key={shop.uid} item={shop} />)}</ShopsSection>
     </>
   );
 }

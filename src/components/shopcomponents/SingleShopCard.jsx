@@ -129,10 +129,11 @@ const EdditBtn = styled(Link)`
 `;
 
 function SingleShopCard({ item, deleteShop }) {
-  const tagas = item?.tags.split(",").map((tag) => tag.trim());
+  // const tagas = item?.tags.split(",").map((tag) => tag.trim());
   const picShop = item?.imageUrl;
   const { user } = useAuthCtx();
   const toShow = item.userUid === user.uid;
+  console.log(item.tags);
 
   return (
     <ShopCard>
@@ -143,7 +144,7 @@ function SingleShopCard({ item, deleteShop }) {
         <CardTitle>{item?.shopName}</CardTitle>
         <CardTown>{item?.town}</CardTown>
         <TaguDiv>
-          {tagas?.map((obj) => (
+          {item?.tags.map((obj) => (
             <CardTags key={obj}>{obj}</CardTags>
           ))}
         </TaguDiv>
