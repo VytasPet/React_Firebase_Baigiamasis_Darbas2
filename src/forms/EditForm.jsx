@@ -111,7 +111,7 @@ function EditForm() {
       description: shopObj?.description,
       startYear: shopObj?.startYear,
       town: shopObj?.town,
-      tags: shopObj?.tags,
+      tags: shopObj?.tags.join(", "),
       imageUrl: shopObj?.imageUrl,
     },
     validationSchema: Yup.object({
