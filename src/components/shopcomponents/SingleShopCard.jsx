@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useAuthCtx } from "../../store/AuthProvider";
@@ -130,10 +130,20 @@ const EdditBtn = styled(Link)`
 
 function SingleShopCard({ item, deleteShop }) {
   // const tagas = item?.tags.split(",").map((tag) => tag.trim());
-  const picShop = item?.imageUrl;
   const { user } = useAuthCtx();
   const toShow = item.userUid === user.uid;
   console.log(item.tags);
+
+  const [shopObj, setShopObj] = useState(null);
+  const [picShop, setPicShop] = useState(null);
+
+  useEffect(() => {
+    if (item) {
+      const obj = item;
+      setShopObj(obj);
+      setPicShop(obj?.imageUrl || "https://cdn.pixabay.com/photo/2019/04/26/07/14/store-4156934_1280.png");
+    }
+  }, [item]);
 
   return (
     <ShopCard>

@@ -1,5 +1,5 @@
 import { doc } from "firebase/firestore";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDocument } from "react-firebase-hooks/firestore";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -50,26 +50,34 @@ function SingleShopContent() {
 
   const docRef = doc(db, "shops", shopUid);
   const [value, loading, error] = useDocument(docRef);
-  const shopObj = value?.data();
+  const [shopObj, setShopObj] = useState(null);
+  const [picShop, setPicShop] = useState(null);
 
-  console.log("shopObj ===", shopObj);
-  const picShop = shopObj?.imageUrl;
-  console.log("picShop ===", picShop);
-  console.log("sdfd", shopObj?.imageUrl);
+  useEffect(() => {
+    if (value) {
+      const obj = value.data();
+      setShopObj(obj);
+      setPicShop(obj?.imageUrl || "https://cdn.pixabay.com/photo/2019/04/26/07/14/store-4156934_1280.png");
+    }
+  }, [value]);
 
   return (
     <>
-      <MainImg src={picShop} alt={shopObj?.title} />
+      {shopObj && (
+        <>
+          <MainImg src={picShop} alt={shopObj.title} />
 
-      <SingleShopMainDiv className="container">
-        <PageTitle>{shopObj?.shopName}</PageTitle>
-        <AboutWhat>Town:</AboutWhat>
-        <Content>{shopObj?.town}</Content>
-        <AboutWhat>Year:</AboutWhat>
-        <Content>{shopObj?.startYear}</Content>
-        <AboutWhat>Description:</AboutWhat>
-        <Content>{shopObj?.description}</Content>
-      </SingleShopMainDiv>
+          <SingleShopMainDiv className="container">
+            <PageTitle>{shopObj.shopName}</PageTitle>
+            <AboutWhat>Town:</AboutWhat>
+            <Content>{shopObj.town}</Content>
+            <AboutWhat>Year:</AboutWhat>
+            <Content>{shopObj.startYear}</Content>
+            <AboutWhat>Description:</AboutWhat>
+            <Content>{shopObj.description}</Content>
+          </SingleShopMainDiv>
+        </>
+      )}
     </>
   );
 }
