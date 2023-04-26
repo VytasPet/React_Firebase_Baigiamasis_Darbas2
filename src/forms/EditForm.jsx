@@ -23,7 +23,7 @@ const Description = styled.p`
 const InputBig = styled.input`
   font-size: 16px;
   color: #254969;
-  min-width: 70%;
+  min-width: 80%;
   min-height: 40px;
   border-radius: 10px;
   padding: 10px 16px;
@@ -41,6 +41,7 @@ const InputBig = styled.input`
 const InputSmall = styled(InputBig)`
   width: 100px;
   min-height: 20px;
+  min-width: 50%;
 
   ${media.tablet`
  min-width: 40%;
@@ -49,9 +50,10 @@ const InputSmall = styled(InputBig)`
 `;
 
 const HalfPageForm = styled.form`
-  width: 38%;
+  width: 48%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   ${media.tablet`
  width: 100%;
