@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { media } from "../components/ui/Responsive";
+import { useAuthCtx } from "../store/AuthProvider";
 
 const PageTitle = styled.h1`
   font-size: 67px;
@@ -64,6 +65,8 @@ const ShopsSection = styled.div`
 `;
 
 function MyShopsPage() {
+  const { user } = useAuthCtx();
+  const [toShowArr, settoShowArr] = useState([]);
   const shopsCollRef = collection(db, "shops");
   const [value, loading, error] = useCollection(shopsCollRef);
   const [loadingToast, setloadingToast] = useState(null);
@@ -76,15 +79,22 @@ function MyShopsPage() {
     }
   }, [loading]);
 
-  const shopsWithUid = value && value.docs.map((doc) => ({ uid: doc.id, ...doc.data() }));
+  useEffect(() => {
+    if (value) {
+      const shopsWithUid = value.docs.map((doc) => ({ uid: doc.id, ...doc.data() }));
+      const filteredArr = shopsWithUid.filter((shop) => shop.userUid === user.uid);
+      console.log("filteredArr ===", filteredArr);
+      settoShowArr(filteredArr);
+    }
+  }, [value, user.uid]);
 
   return (
     <>
       <TitleDiv className="container">
         <PageTitle>My Uploaded Shops</PageTitle>
       </TitleDiv>
-      {value && shopsWithUid.length < 1 && <NoShops>No shops at the moment...</NoShops>}
-      <ShopsSection className="container">{value && shopsWithUid.map((shop) => <SingleShopCard key={shop.uid} item={shop} />)}</ShopsSection>
+      {value && toShowArr.length < 1 && <NoShops>No shops at the moment...</NoShops>}
+      <ShopsSection className="container">{value && toShowArr.map((shop) => <SingleShopCard key={shop.uid} item={shop} />)}</ShopsSection>
     </>
   );
 }
